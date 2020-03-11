@@ -40,9 +40,8 @@
     img {
       position: absolute;
       top: 0;
-      left: 1px;
-      right: 1px;
-      max-width: calc(100% - 2px);
+      left: 0;
+      max-width: 100%;
       height: 100%;
       object-fit: cover;
     }
