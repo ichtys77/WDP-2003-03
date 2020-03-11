@@ -11,3 +11,67 @@ $primary: #d58e32;
 $text-color: #2a2a2a;
 
 $form-border-color: #292929;
+
+/* DON'T USE THIS VARIABLES */
+$dark-gray: #2a2a2a;
+$second-dark-gray: rgb(42,42,42);
+$third-dark-gray: #292929;
+$light-gray: #b6b6b6;
+$second-light-gray: #e1e1e1;
+$third-light-gray: #f4f5f7;
+$fourth-light-gray: #e2e2e2;
+$fifth-light-gray: rgb(216, 216, 216);
+$sixth-light-gray: rgb(224, 227, 237);
+$seventh-light-gray: rgb(169, 169, 169);
+$white: #ffffff;
+$dark-opacity: rgba(1, 2, 2, 0.2);
+
+/*END*/
+
+/*BUTTON*/
+$button-main-bg: $dark-gray;
+$butoon-color: $white;
+$button-outline: $dark-gray;
+
+/*FEATURE BOX*/
+$root-border-color: $light-gray;
+$icon-wrapper-before: $light-gray;
+$icon-wrapper-bg: $white;
+$icon-wrapper-after-border: $light-gray;
+$content-text-color: $second-dark-gray;
+
+/*PRODUCT BOX*/
+$product-root-bg: $white;
+$product-root-border: $second-light-gray;
+$product-photo-bg: $third-light-gray;
+$product-sale-bg: $third-dark-gray;
+$product-sale-text-color: $white;
+$produt-starts-link-color: $second-dark-gray;
+$product-line-border: $dark-gray;
+
+/*NEW FURNITURE */
+$nf-global-row-border: $fourth-light-gray;
+$nf-menu-link: $second-dark-gray;
+$nf-dots-bg: $white;
+$nf-dots-link-bg: $second-light-gray;
+
+/*COMPANY CLAIM */
+$cc-phonenumber-paragraph-color: $fifth-light-gray;
+$cc-cartbox-text-color: $white;
+$cc-cartCounter-text-color: $sixth-light-gray;
+
+/*FOOTER*/
+$f-menuWrapper-link-color: $seventh-light-gray;
+$f-menuWrapper-link-hover: $white;
+$f-coppyright-color: $seventh-light-gray;
+$f-socialmedia-link-color: $seventh-light-gray;
+
+/*MENU BAR*/
+$mb-root-bg: $white;
+$mb-root-boxshadow: $dark-opacity;
+$mb-link-border: $white;
+$mb-link-active: $white;
+
+/*TOP BAR*/
+$tb-link-color: $white;
+
