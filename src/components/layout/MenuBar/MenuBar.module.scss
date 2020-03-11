@@ -38,6 +38,7 @@
 
       &:hover,
       &.active {
+        transition: $transition-time;
         background-color: $primary;
         color: $mb-link-active;
         border-color: $primary;

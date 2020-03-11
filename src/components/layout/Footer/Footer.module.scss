@@ -23,6 +23,7 @@
             color: $f-menuWrapper-link-color;
 
             &:hover {
+              transition: $transition-time;
               color: $f-menuWrapper-link-hover;
             }
           }
@@ -72,6 +73,7 @@
             text-decoration: none;
 
             &:hover {
+              transition: $transition-time;
               color: $primary;
             }
           }

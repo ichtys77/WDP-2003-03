@@ -64,6 +64,7 @@
 
       &:hover {
         .cartIcon {
+          transition: $transition-time;
           background-color: lighten($primary, 10%);
         }
       }
