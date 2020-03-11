@@ -41,3 +41,11 @@
     }
   }
 }
+@media(max-width: 768px) {
+  span {
+    display: none;
+  }
+  .topOptions ul li {
+    margin-right: 0;
+  }
+}
