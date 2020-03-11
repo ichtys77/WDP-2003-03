@@ -49,6 +49,7 @@
       .cartCounter {
         width: 28px;
         height: 27px;
+        overflow: hidden;
         border-radius: 14px;
         background-color: $header-bg;
         display: flex;
