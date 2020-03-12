@@ -100,11 +100,11 @@ const Footer = ({ children }) => (
     <div className={styles.bottomBar}>
       <div className='container'>
         <div className='row align-items-center'>
-          <div className='col order-md-2 order-lg-1 '></div>
-          <div className={'col text-center order-md-1 order-lg-2 ' + styles.copyright}>
+          <div className='col order-lg-1 order-md-2 '></div>
+          <div className={'col text-center order-lg-2 order-md-1 ' + styles.copyright}>
             <p>©Copyright 2016 Bazar | All Rights Reserved</p>
           </div>
-          <div className={'col text-right order-md-3 order-lg-3 ' + styles.socialMedia}>
+          <div className={'col text-right order-lg-3 order-md-3 ' + styles.socialMedia}>
             <ul>
               <li>
                 <a href='#'>
