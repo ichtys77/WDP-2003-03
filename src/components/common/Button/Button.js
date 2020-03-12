@@ -8,6 +8,7 @@ const Button = ({
   variant,
   noHover,
   id,
+  favButton,
   changeFavStatus,
   className: propClassName,
   ...props
@@ -30,7 +31,7 @@ const Button = ({
     <Comp
       href='#'
       {...props}
-      onClick={() => changeFavStatus(id)}
+      onClick={favButton ? () => changeFavStatus(id) : null}
       className={classes.join(' ')}
     >
       {children}
@@ -44,6 +45,7 @@ Button.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
   id: PropTypes.string,
+  favButton: PropTypes.string,
   changeFavStatus: PropTypes.func,
 };
 

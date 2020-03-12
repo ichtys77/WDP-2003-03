@@ -18,7 +18,6 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
   handleFavChange = id => {
-    console.log('fav change id:', id);
     this.props.addFav(id);
   };
 

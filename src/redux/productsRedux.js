@@ -17,17 +17,15 @@ export const addFavorite = payload => ({ payload, type: ADD_FAV });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
-  {
-    console.log(statePart);
-  }
   switch (action.type) {
     case ADD_FAV: {
-      return {
-        ...statePart,
-        products: statePart.map((product, i) =>
-          i + 1 === action.payload ? { ...product, favorite: false } : product
-        ),
-      };
+      let products = statePart.map(item => {
+        if (item.id === action.payload) {
+          item.favorite = !item.favorite;
+        }
+        return item;
+      });
+      return [...statePart, products];
     }
     default:
       return statePart;

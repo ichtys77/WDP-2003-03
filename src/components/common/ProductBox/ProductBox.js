@@ -41,6 +41,7 @@ const ProductBox = ({ id, name, price, promo, stars, favorite, changeFavStatus }
       <div className={styles.outlines}>
         <Button
           variant='outline'
+          favButton={true}
           id={id}
           changeFavStatus={changeFavStatus}
           className={favorite ? 'active' : ''}
