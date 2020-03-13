@@ -36,9 +36,17 @@
   line-height: 22px;
   transition: $transition-time;
 
+
   &:not(.noHover):hover {
     background-color: $button-outline;
     color: $butoon-color;
     
   }
+
+  &.active {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+
 }
+
