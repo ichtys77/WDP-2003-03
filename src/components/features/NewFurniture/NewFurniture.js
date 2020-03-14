@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import StickyBar from '../../common/StickyBar/StickyBar';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    compareList: [],
   };
 
   handlePageChange(newPage) {
@@ -17,6 +19,24 @@ class NewFurniture extends React.Component {
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
+
+  handleCompare = (image, id) => {
+    if (this.state.compareList.length < 4) {
+      this.setState({
+        compareList: [...this.state.compareList, image],
+      });
+    } else console.log('nie mozesz porównać więcej niz 4 produkty');
+
+    this.props.changeCompare(id);
+  };
+
+  handleRemoveCompare = index => {
+    const compareProducts = this.state.compareList.filter(item => index !== item);
+    this.setState({
+      compareList: compareProducts,
+    });
+  };
+  onClickHandle = () => {};
 
   render() {
     const { categories, products } = this.props;
@@ -69,10 +89,16 @@ class NewFurniture extends React.Component {
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
               <div key={item.id} className='col-6 col-lg-3'>
-                <ProductBox {...item} />
+                <ProductBox {...item} addToCompare={this.handleCompare} />
               </div>
             ))}
           </div>
+          {this.state.compareList.length ? (
+            <StickyBar
+              compareList={this.state.compareList}
+              removeFromCompare={this.handleRemoveCompare}
+            />
+          ) : null}
         </div>
       </div>
     );
@@ -80,6 +106,7 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
+  changeCompare: PropTypes.func,
   children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({

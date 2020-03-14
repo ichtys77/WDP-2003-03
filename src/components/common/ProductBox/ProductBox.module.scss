@@ -35,7 +35,7 @@
     }
 
     .buttons {
-      display: none;
+      display: flex;
       justify-content: space-between;
       a {
         z-index: 1;
@@ -93,15 +93,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .outlines {
-      font-size: 20px;
-      background-color: red;
-    }
-
-    .price {
-      background-color: red
-    }
   }
 
 }
