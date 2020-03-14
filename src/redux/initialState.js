@@ -82,6 +82,7 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       compare: false,
+      master,
       image:
         'https://images.pexels.com/photos/3773575/pexels-photo-3773575.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },

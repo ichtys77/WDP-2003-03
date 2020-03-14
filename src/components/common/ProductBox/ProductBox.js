@@ -25,10 +25,12 @@ const ProductBox = ({
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
-      <img src={image} alt={name} />
+      {/*<img src={image} alt={name} />*/}
       <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
+        <Button className={styles.options} variant='small'>
+          Quick View
+        </Button>
+        <Button className={styles.options} variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>
       </div>
@@ -64,7 +66,7 @@ const ProductBox = ({
         </Button>
       </div>
       <div className={styles.price}>
-        <Button noHover variant='small'>
+        <Button className={styles.priceBtn} noHover variant='small'>
           $ {price}
         </Button>
       </div>
@@ -79,10 +81,10 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   favorite: PropTypes.bool,
-  addToCompare: PropTypes.func,
   compare: PropTypes.bool,
   image: PropTypes.string,
   id: PropTypes.string,
+  addToCompare: PropTypes.func,
 };
 
 export default ProductBox;
