@@ -19,7 +19,6 @@
    
     &:hover .buttons a {
       opacity: 1;
-      //display: none;
     }
 
     .sale {
@@ -97,8 +96,8 @@
   }
   
   &:hover  {
-    .photo ~ .actions .price .priceBtn {
-        background-color: $primary;
+    .photo ~ .actions .price div {
+      background-color: $primary;
     }
   }
 }
