@@ -11,13 +11,26 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ id, name, price, promo, stars, favorite, changeFavStatus }) => (
+const ProductBox = ({
+  id,
+  name,
+  price,
+  promo,
+  stars,
+  image,
+  favorite,
+  changeFavStatus,
+  compare,
+}) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
+      {<img src={image} alt={name} />}
       <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
+        <Button className={styles.options} variant='small'>
+          Quick View
+        </Button>
+        <Button className={styles.options} variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>
       </div>
@@ -48,12 +61,12 @@ const ProductBox = ({ id, name, price, promo, stars, favorite, changeFavStatus }
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button variant='outline' className={compare ? 'active' : ''}>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
       <div className={styles.price}>
-        <Button noHover variant='small'>
+        <Button className={styles.priceBtn} noHover variant='small'>
           $ {price}
         </Button>
       </div>
@@ -70,6 +83,8 @@ ProductBox.propTypes = {
   favorite: PropTypes.bool,
   id: PropTypes.string,
   changeFavStatus: PropTypes.func,
+  compare: PropTypes.bool,
+  image: PropTypes.string,
 };
 
 export default ProductBox;

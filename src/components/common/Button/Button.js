@@ -45,7 +45,7 @@ Button.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
   id: PropTypes.string,
-  favButton: PropTypes.string,
+  favButton: PropTypes.bool,
   changeFavStatus: PropTypes.func,
 };
 
