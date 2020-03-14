@@ -15,10 +15,12 @@ const ProductBox = ({ name, price, promo, stars, image, favorite, compare, oldPr
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
-      <img src={image} alt={name} />
+      {/*<img src={image} alt={name} />*/}
       <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
+        <Button className={styles.options} variant='small'>
+          Quick View
+        </Button>
+        <Button className={styles.options} variant='small'>
           <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
         </Button>
       </div>
@@ -54,7 +56,7 @@ const ProductBox = ({ name, price, promo, stars, image, favorite, compare, oldPr
             <div className={styles.oldPrice}>$ {oldPrice}</div>
           </Button>
         )}
-        <Button noHover variant='small'>
+        <Button className={styles.priceBtn} noHover variant='small'>
           $ {price}
         </Button>
       </div>

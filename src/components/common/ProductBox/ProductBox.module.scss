@@ -11,11 +11,16 @@
     background: {
       color: $product-photo-bg;
       size: contain;
-      position: center;
+      position: center;  
       repeat: no-repeat;
     }
     overflow: hidden;
     align-items: flex-end;
+   
+    &:hover .buttons a {
+      opacity: 1;
+      //display: none;
+    }
 
     .sale {
       position: absolute;
@@ -32,8 +37,10 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+
       a {
         z-index: 1;
+        opacity: 0;
       }
     }
 
@@ -97,5 +104,10 @@
 
   .oldPrice {
     text-decoration: line-through;
+  
+  &:hover  {
+    .photo ~ .actions .price div {
+      background-color: $primary;
+    }
   }
 }
