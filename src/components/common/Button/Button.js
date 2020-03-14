@@ -6,7 +6,7 @@ import styles from './Button.module.scss';
 const Button = ({ children, variant, noHover, className: propClassName, ...props }) => {
   const classes = [];
 
-  if (propClassName) classes.push(propClassName);
+  if (propClassName) classes.push(styles[propClassName]);
 
   if (variant) classes.push(styles[variant]);
   else classes.push('main');

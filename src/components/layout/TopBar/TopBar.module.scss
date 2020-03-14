@@ -13,12 +13,13 @@
       line-height: 55px;
 
       a {
-        color: #ffffff;
+        color: $tb-link-color;
         font-size: 13px;
 
         &:hover {
           color: $primary;
           text-decoration: none;
+          transition: $transition-time;
         }
       }
     }
@@ -38,5 +39,13 @@
     .icon {
       margin-right: 5px;
     }
+  }
+}
+@media(max-width: 768px) {
+  span {
+    display: none;
+  }
+  .topOptions ul li {
+    margin-right: 0;
   }
 }
