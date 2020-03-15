@@ -4,18 +4,27 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
+import { CSSTransition } from 'react-transition-group';
+
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    fade: 0,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+      fade: this.state.fade + 1,
+    });
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({
+      activeCategory: newCategory,
+      fade: this.state.fade + 1,
+    });
   }
 
   render() {
@@ -66,13 +75,33 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-12 col-lg-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
-          </div>
+          <CSSTransition
+            className='row'
+            key={this.state.fade}
+            in={this.state.fade}
+            timeout={4000}
+            classNames='fade'
+            appear={true}
+            classNames={{
+              appear: styles.fadeAppear,
+              appearActive: styles.fadeAppearActive,
+              enter: styles.fadeEnter,
+              enterActive: styles.fadeEnterActive,
+              exit: styles.fadeExit,
+              exitActive: styles.fadeExitActive,
+              exitActiveDone: styles.fadeExitActiveDone,
+            }}
+          >
+            <div>
+              {categoryProducts
+                .slice(activePage * 8, (activePage + 1) * 8)
+                .map(item => (
+                  <div key={item.id} className='col-6 col-lg-3'>
+                    <ProductBox {...item} />
+                  </div>
+                ))}
+            </div>
+          </CSSTransition>
         </div>
       </div>
     );
