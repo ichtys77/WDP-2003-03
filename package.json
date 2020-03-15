@@ -14,9 +14,6 @@
     "refactor:format": "prettier --write \"src/**/*.{js,html,scss}\"",
     "refactor:lint": "eslint src/",
     "build": "react-scripts build",
-    "test": "react-scripts test --noStackTrace",
-    "test-all": "react-scripts test --watchAll=false --noStackTrace",
-    "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
     "eject": "react-scripts eject"
   },
   "husky": {
@@ -26,7 +23,6 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "npm run test-related --",
       "eslint --fix",
       "prettier --write",
       "git add"
@@ -62,6 +58,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "react-swipe-component": "^3.0.0",
+    "react-swipeable": "^5.5.1",
     "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4"
   },
