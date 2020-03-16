@@ -62,7 +62,7 @@ const ProductBox = ({
           href={false}
           className={compare ? 'active' : ''}
           addToCompare={addToCompare}
-          compareBtn={true}
+          btn='compareButton'
         >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
@@ -86,6 +86,7 @@ ProductBox.propTypes = {
   compare: PropTypes.bool,
   image: PropTypes.string,
   id: PropTypes.string,
+  btn: PropTypes.string,
   addToCompare: PropTypes.func,
 };
 

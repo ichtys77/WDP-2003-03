@@ -3,43 +3,57 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
-const Button = ({
-  children,
-  variant,
-  noHover,
-  addToCompare,
-  compareBtn,
-  id,
-  href,
-  image,
-  className: propClassName,
-  ...props
-}) => {
-  const classes = [];
+class Button extends React.Component {
+  handleOnClick = (btn, image, id, addToCompare) => {
+    switch (btn) {
+      case 'compareButton': {
+        return addToCompare(image, id);
+      }
+      default:
+        return null;
+    }
+  };
 
-  if (propClassName) classes.push(styles[propClassName]);
+  render() {
+    const {
+      children,
+      variant,
+      noHover,
+      addToCompare,
+      btn,
+      id,
+      href,
+      image,
+      className: propClassName,
+      ...props
+    } = this.props;
 
-  if (variant) classes.push(styles[variant]);
-  else classes.push('main');
+    const classes = [];
 
-  let Comp = 'a';
+    if (propClassName) classes.push(styles[propClassName]);
 
-  if (noHover) {
-    classes.push(styles.noHover);
-    Comp = 'div';
+    if (variant) classes.push(styles[variant]);
+    else classes.push('main');
+
+    let Comp = 'a';
+
+    if (noHover) {
+      classes.push(styles.noHover);
+      Comp = 'div';
+    }
+
+    return (
+      <Comp
+        href={href}
+        {...props}
+        onClick={() => this.handleOnClick(btn, image, id, addToCompare)}
+        className={classes.join(' ')}
+      >
+        {children}
+      </Comp>
+    );
   }
-
-  return (
-    <Comp
-      href={href}
-      {...props}
-      onClick={compareBtn ? () => addToCompare(image, id) : null}
-      className={classes.join(' ')}
-    >
-      {children}
-    </Comp>
-  );
-};
+}
 
 Button.propTypes = {
   children: PropTypes.node,
@@ -50,7 +64,7 @@ Button.propTypes = {
   image: PropTypes.string,
   id: PropTypes.string,
   href: PropTypes.bool,
-  compareBtn: PropTypes.bool,
+  btn: PropTypes.string,
 };
 
 export default Button;

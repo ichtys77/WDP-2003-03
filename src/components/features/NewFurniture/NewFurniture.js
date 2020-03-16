@@ -36,7 +36,6 @@ class NewFurniture extends React.Component {
       compareList: compareProducts,
     });
   };
-  onClickHandle = () => {};
 
   render() {
     const { categories, products } = this.props;
