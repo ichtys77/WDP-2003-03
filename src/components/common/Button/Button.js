@@ -8,7 +8,7 @@ const Button = ({
   variant,
   noHover,
   id,
-  href,
+  btn,
   favButton,
   changeFavStatus,
   className: propClassName,
@@ -27,12 +27,22 @@ const Button = ({
     classes.push(styles.noHover);
     Comp = 'div';
   }
+  const handleOnClick = (e, btn, changeFavStatus, id) => {
+    e.preventDefault();
+    switch (btn) {
+      case 'favButton': {
+        return changeFavStatus(id);
+      }
+      default:
+        return null;
+    }
+  };
 
   return (
     <Comp
-      href={href}
+      href='#'
       {...props}
-      onClick={favButton ? () => changeFavStatus(id) : null}
+      onClick={e => handleOnClick(e, btn, changeFavStatus, id)}
       className={classes.join(' ')}
     >
       {children}
@@ -46,7 +56,7 @@ Button.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
   id: PropTypes.string,
-  href: PropTypes.bool,
+  btn: PropTypes.string,
   favButton: PropTypes.bool,
   changeFavStatus: PropTypes.func,
 };

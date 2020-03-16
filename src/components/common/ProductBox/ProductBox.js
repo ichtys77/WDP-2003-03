@@ -58,7 +58,7 @@ const ProductBox = ({
           id={id}
           changeFavStatus={changeFavStatus}
           className={favorite ? 'active' : ''}
-          href={false}
+          btn='favButton'
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
