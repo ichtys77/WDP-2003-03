@@ -15,7 +15,7 @@ export const addViewport = payload => ({ payload, type: ADD_VIEWPORT });
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_VIEWPORT: {
-      if (action.payload.width < 1280) {
+      if (action.payload.width >= 1280) {
         return {
           mode: 'desktop',
         };
