@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
 class Button extends React.Component {
-  handleOnClick = (btn, image, id, addToCompare) => {
+  handleOnClick = (event, btn, image, id, addToCompare) => {
+    event.preventDefault();
     switch (btn) {
       case 'compareButton': {
         return addToCompare(image, id);
@@ -22,7 +23,6 @@ class Button extends React.Component {
       addToCompare,
       btn,
       id,
-      href,
       image,
       className: propClassName,
       ...props
@@ -44,9 +44,9 @@ class Button extends React.Component {
 
     return (
       <Comp
-        href={href}
+        href='#'
         {...props}
-        onClick={() => this.handleOnClick(btn, image, id, addToCompare)}
+        onClick={e => this.handleOnClick(e, btn, image, id, addToCompare)}
         className={classes.join(' ')}
       >
         {children}
@@ -63,7 +63,6 @@ Button.propTypes = {
   addToCompare: PropTypes.func,
   image: PropTypes.string,
   id: PropTypes.string,
-  href: PropTypes.bool,
   btn: PropTypes.string,
 };
 

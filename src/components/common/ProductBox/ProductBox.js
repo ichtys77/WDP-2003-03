@@ -59,7 +59,6 @@ const ProductBox = ({
           variant='outline'
           image={image}
           id={id}
-          href={false}
           className={compare ? 'active' : ''}
           addToCompare={addToCompare}
           btn='compareButton'
