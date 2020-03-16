@@ -9,13 +9,15 @@ const ProductSearch = () => (
   <form action='' className={styles.root}>
     <div className={styles.category}>
       <FontAwesomeIcon icon={faListUl} className={styles.icon} />
-      <ul>
-        {' '}
-        Select a category
-        {initialState.categories.map(item => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
+      <div className={styles.list}>
+        <ul>
+          {' '}
+          Select a category
+          {initialState.categories.map(item => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul>
+      </div>
       <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>
