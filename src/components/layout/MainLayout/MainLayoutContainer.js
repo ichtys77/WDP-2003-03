@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
 import MainLayout from './MainLayout';
-import { getView } from '../../../redux/viewportRedux';
+import { getView, addViewport } from '../../../redux/viewportRedux';
 
 const mapStateToProps = state => ({
   viewport: getView(state),
 });
 
-export default connect(mapStateToProps)(MainLayout);
+const mapDispatchToProps = dispatch => ({
+  addViewport: data => dispatch(addViewport(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
