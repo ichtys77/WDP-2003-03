@@ -57,8 +57,10 @@ const ProductBox = ({
           variant='outline'
           image={image}
           id={id}
+          href={false}
           className={compare ? 'active' : ''}
           addToCompare={addToCompare}
+          compareBtn={true}
         >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>

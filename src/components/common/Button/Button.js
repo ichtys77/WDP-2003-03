@@ -8,7 +8,9 @@ const Button = ({
   variant,
   noHover,
   addToCompare,
+  compareBtn,
   id,
+  href,
   image,
   className: propClassName,
   ...props
@@ -29,9 +31,9 @@ const Button = ({
 
   return (
     <Comp
-      href='#'
+      href={href}
       {...props}
-      onClick={() => addToCompare(image, id)}
+      onClick={compareBtn ? () => addToCompare(image, id) : null}
       className={classes.join(' ')}
     >
       {children}
@@ -47,6 +49,8 @@ Button.propTypes = {
   addToCompare: PropTypes.func,
   image: PropTypes.string,
   id: PropTypes.string,
+  href: PropTypes.bool,
+  compareBtn: PropTypes.bool,
 };
 
 export default Button;

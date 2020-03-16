@@ -8,9 +8,9 @@ const StickyBar = ({ compareList, removeFromCompare }) => (
     {compareList.map(item => (
       <div key={item} className={styles.photo}>
         <img alt={item} src={item}></img>
-        <a href='#' className={styles.close} onClick={() => removeFromCompare(item)}>
+        <span className={styles.close} onClick={() => removeFromCompare(item)}>
           X
-        </a>
+        </span>
       </div>
     ))}
     <Button variant='small'>Compare</Button>
