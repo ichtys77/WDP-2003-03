@@ -1,6 +1,6 @@
 const initialState = {
   viewport: {
-    mode: '',
+    mode: null,
   },
 
   categories: [

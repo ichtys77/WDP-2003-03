@@ -19,12 +19,10 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    let itemsPerPage;
     const { categories, products, viewport } = this.props;
     const { activeCategory, activePage } = this.state;
 
-    const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
+    let itemsPerPage;
 
     if (viewport.mode === 'desktop') {
       itemsPerPage = 8;
@@ -33,6 +31,9 @@ class NewFurniture extends React.Component {
     } else {
       itemsPerPage = 1;
     }
+
+    const categoryProducts = products.filter(item => item.category === activeCategory);
+    const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -109,11 +110,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  viewport: PropTypes.objectOf(
-    PropTypes.shape({
-      mode: PropTypes.object,
-    })
-  ),
+  viewport: PropTypes.object,
 };
 
 NewFurniture.defaultProps = {
