@@ -25,7 +25,7 @@ const ProductBox = ({
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
-      {<img src={image} alt={name} />}
+      <img src={image} alt={name} />
       <div className={styles.buttons}>
         <Button className={styles.options} variant='small'>
           Quick View
@@ -58,6 +58,7 @@ const ProductBox = ({
           id={id}
           changeFavStatus={changeFavStatus}
           className={favorite ? 'active' : ''}
+          href={false}
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
