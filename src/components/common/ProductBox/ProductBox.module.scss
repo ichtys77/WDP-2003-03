@@ -11,12 +11,12 @@
     background: {
       color: $product-photo-bg;
       size: contain;
-      position: center;  
+      position: center;
       repeat: no-repeat;
     }
     overflow: hidden;
     align-items: flex-end;
-   
+
     &:hover .buttons a {
       opacity: 1;
       //display: none;
@@ -95,10 +95,20 @@
     justify-content: space-between;
     align-items: center;
   }
-  
-  &:hover  {
-    .photo ~ .actions .price div {
-      background-color: $primary;
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+
+    &:hover {
+      .photo ~ .actions .price div {
+        background-color: $primary;
+      }
     }
   }
 }
