@@ -23,7 +23,13 @@ class NewFurniture extends React.Component {
   handleCompare = (image, id) => {
     if (this.state.compareList.length < 4) {
       this.setState({
-        compareList: [...this.state.compareList, image],
+        compareList: [
+          ...this.state.compareList,
+          {
+            id: id,
+            image: image,
+          },
+        ],
       });
     } else console.log('nie mozesz porównać więcej niz 4 produkty');
 
@@ -31,10 +37,11 @@ class NewFurniture extends React.Component {
   };
 
   handleRemoveCompare = index => {
-    const compareProducts = this.state.compareList.filter(item => index !== item);
+    const compareProducts = this.state.compareList.filter(item => index !== item.id);
     this.setState({
       compareList: compareProducts,
     });
+    this.props.changeCompare(index);
   };
 
   render() {

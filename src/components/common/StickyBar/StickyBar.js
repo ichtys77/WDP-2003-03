@@ -6,9 +6,9 @@ import Button from '../../common/Button/Button';
 const StickyBar = ({ compareList, removeFromCompare }) => (
   <div className={styles.sticky}>
     {compareList.map(item => (
-      <div key={item} className={styles.photo}>
-        <img alt={item} src={item}></img>
-        <span className={styles.close} onClick={() => removeFromCompare(item)}>
+      <div key={item.id} className={styles.photo}>
+        <img alt={item.id} src={item.image}></img>
+        <span className={styles.close} onClick={() => removeFromCompare(item.id)}>
           X
         </span>
       </div>
