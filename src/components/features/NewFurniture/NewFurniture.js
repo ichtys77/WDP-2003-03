@@ -17,9 +17,6 @@ class NewFurniture extends React.Component {
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
-  handleFavChange = id => {
-    this.props.addFav(id);
-  };
 
   render() {
     const { categories, products } = this.props;
@@ -72,7 +69,7 @@ class NewFurniture extends React.Component {
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
               <div key={item.id} className='col-12 col-lg-3'>
-                <ProductBox {...item} changeFavStatus={this.handleFavChange} />
+                <ProductBox {...item} changeFav={this.props.addFav} />
               </div>
             ))}
           </div>
