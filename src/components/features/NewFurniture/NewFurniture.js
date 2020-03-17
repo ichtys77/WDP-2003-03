@@ -68,8 +68,8 @@ class NewFurniture extends React.Component {
           </div>
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-6 col-lg-3'>
-                <ProductBox {...item} />
+              <div key={item.id} className='col-12 col-lg-3'>
+                <ProductBox {...item} changeFav={this.props.addFav} />
               </div>
             ))}
           </div>
@@ -98,6 +98,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  addFav: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
