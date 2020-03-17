@@ -20,7 +20,7 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
-  handleCompare = (image, id) => {
+  handleAddCompare = (image, id) => {
     if (this.state.compareList.length < 4) {
       this.setState({
         compareList: [
@@ -31,9 +31,10 @@ class NewFurniture extends React.Component {
           },
         ],
       });
-    } else console.log('nie mozesz porównać więcej niz 4 produkty');
-
-    this.props.changeCompare(id);
+      this.props.changeCompare(id);
+    } else {
+      console.log('Nie porownac więcej produktow');
+    }
   };
 
   handleRemoveCompare = index => {
@@ -94,8 +95,12 @@ class NewFurniture extends React.Component {
           </div>
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-6 col-lg-3'>
-                <ProductBox {...item} addToCompare={this.handleCompare} />
+              <div key={item.id} className='col-12 col-lg-3'>
+                <ProductBox
+                  {...item}
+                  changeFav={this.props.addFav}
+                  addToCompare={this.handleAddCompare}
+                />
               </div>
             ))}
           </div>
@@ -131,6 +136,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  addFav: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
