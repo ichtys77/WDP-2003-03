@@ -81,7 +81,7 @@ class NewFurniture extends React.Component {
               .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
               .map(item => (
                 <div key={item.id} className='col-12 col-lg-3'>
-                  <ProductBox {...item} />
+                  <ProductBox {...item} changeFav={this.props.addFav} />
                 </div>
               ))}
           </div>
@@ -111,6 +111,7 @@ NewFurniture.propTypes = {
     })
   ),
   viewport: PropTypes.object,
+  addFav: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
