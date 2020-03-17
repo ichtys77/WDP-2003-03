@@ -54,6 +54,7 @@
 
 @media (max-width: 767px) {
   .root {
+
     :global(.container) > :global(.row) {
       min-height: 120px;
     }
@@ -62,10 +63,18 @@
       display: flex;
       align-self: stretch;
       width: 100%;
-      z-index: 9999;
+      z-index: 999;
       position: relative;
       top: 20px;
       visibility: hidden;
+
+      .visible {
+        visibility: visible;
+      }
+  
+      .hidden {
+        visibility: hidden;
+      }
 
       ul {
         flex-direction: column;
@@ -104,6 +113,7 @@
       li:last-child {
         border-bottom: 4px solid $primary;
       }
+
     }
 
     .mobileMenu {
@@ -117,7 +127,6 @@
         color: $primary;
       }
     }
-
   } 
 }
 
