@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
 
 class NewFurniture extends React.Component {
@@ -101,17 +102,26 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-12 col-lg-3'>
-                <ProductBox
-                  {...item}
-                  changeFav={this.props.addFav}
-                  addToCompare={this.handleAddCompare}
-                />
-              </div>
-            ))}
-          </div>
+
+          <SwipeComponent
+            itemsCount={pagesCount}
+            activeItem={this.state.activePage}
+            swipeAction={this.handlePageChange.bind(this)}
+          >
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * 8, (activePage + 1) * 8)
+                .map(item => (
+                  <div key={item.id} className='col-12 col-lg-3'>
+                    <ProductBox
+                      {...item}
+                      changeFav={this.props.addFav}
+                      addToCompare={this.handleAddCompare}
+                    />
+                  </div>
+                ))}
+            </div>
+          </SwipeComponent>
           {this.state.compareList.length ? (
             <StickyBar
               compareList={this.state.compareList}
