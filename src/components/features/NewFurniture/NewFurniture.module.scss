@@ -111,7 +111,7 @@
 
   .fadeAppearActive {
     opacity: 1;
-    transition: opacity 4s;
+    transition: opacity 3s;
   }
 
   .fadeEnter {
@@ -120,12 +120,12 @@
 
   .fadeEnterActive {
     opacity: 1;
-    transition: opacity 4s ease-in-out;
+    transition: opacity 3s ease-in-out;
   }
 
   .fadeEnterActiveDone {
     opacity: 1;
-    transition: opacity 4s;
+    transition: opacity 3s;
   }
 
   .fadeExit {
@@ -134,10 +134,10 @@
 
   .fadeExitActive {
     opacity: 0;
-    transition: opacity 4s ease-in-out;
+    transition: opacity 3s ease-in-out;
   }
   .fadeExitDone {
     opacity: 0;
-    transition: opacity 4s;
+    transition: opacity 3s;
   }
 }

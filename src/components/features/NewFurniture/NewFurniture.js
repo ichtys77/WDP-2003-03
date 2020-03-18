@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
-import { CSSTransition } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class NewFurniture extends React.Component {
   state = {
@@ -75,33 +75,30 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <CSSTransition
-            className='row'
-            key={this.state.fade}
-            in={this.state.fade}
-            timeout={4000}
-            classNames='fade'
-            appear={true}
-            classNames={{
-              appear: styles.fadeAppear,
-              appearActive: styles.fadeAppearActive,
-              enter: styles.fadeEnter,
-              enterActive: styles.fadeEnterActive,
-              exit: styles.fadeExit,
-              exitActive: styles.fadeExitActive,
-              exitActiveDone: styles.fadeExitActiveDone,
-            }}
-          >
-            <div>
-              {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
-                .map(item => (
-                  <div key={item.id} className='col-6 col-lg-3'>
-                    <ProductBox {...item} />
-                  </div>
-                ))}
-            </div>
-          </CSSTransition>
+
+          <TransitionGroup className='row'>
+            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
+              <CSSTransition
+                key={item.id}
+                timeout={3000}
+                classNames='fade'
+                appear={true}
+                classNames={{
+                  appear: styles.fadeAppear,
+                  appearActive: styles.fadeAppearActive,
+                  enter: styles.fadeEnter,
+                  enterActive: styles.fadeEnterActive,
+                  exit: styles.fadeExit,
+                  exitActive: styles.fadeExitActive,
+                  exitActiveDone: styles.fadeExitActiveDone,
+                }}
+              >
+                <div key={item.id} className='col-6 col-lg-3'>
+                  <ProductBox {...item} />
+                </div>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         </div>
       </div>
     );
