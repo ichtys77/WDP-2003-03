@@ -11,7 +11,6 @@ const ProductSearch = () => (
       <FontAwesomeIcon icon={faListUl} className={styles.icon} />
       <div className={styles.list}>
         <ul>
-          {' '}
           Select a category
           {initialState.categories.map(item => (
             <li key={item.id}>{item.name}</li>

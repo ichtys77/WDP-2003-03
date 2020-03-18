@@ -6,53 +6,15 @@
   height: 45px;
   color: $text-color;
 
-
   .category {
     border-right: 1px solid $form-border-color;
+    display: flex;
     align-items: center;
     position: relative;
-    display: flex;
-    .list {
-      z-index: 1;
-      position: relative;
-    ul {
-      list-style-type: none;
-      margin: 0;
-      border: 0;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
-
-
-      li {
-        border: 0;
-        width: 100%;
-        background-color: white;
-        z-index: 3;
-        padding: 5px 30px 5px 35px;
-        display: none;
-
-        &:hover {
-          background-color: $primary;
-          color: white
-        }
-      }
-
-      &:hover li {
-        display: block;
-
-      }
-    }
-    }
 
     &:hover {
       background-color: $primary;
       border-color: $primary;
-      display: block;
-
-    }
-
-    &:hover .icon {
-      display: none;
     }
 
     &:hover .icon:first-child {
@@ -71,19 +33,40 @@
       right: 10px;
       z-index: 0;
     }
-
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
-      position: relative;
+    .list {
       z-index: 1;
-      outline: none;
-      font-size: 14px;
+
+      ul {
+        -webkit-appearance: none;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        padding: 5px 30px 5px 35px;
+        outline: none;
+        font-size: 14px;
+
+        &:hover li {
+          display: block;
+        }
+
+      }
+    li {
+      position: absolute;
+      border: 0;
+      width: 100%;
+      background-color: white;
+      padding: 5px 30px 5px 35px;
+      display: none;
+      left: 0;
+
+      &:hover {
+        background-color: $primary;
+        color: white
+      }
     }
   }
-
+  }
 
   .searchField {
     display: flex;
