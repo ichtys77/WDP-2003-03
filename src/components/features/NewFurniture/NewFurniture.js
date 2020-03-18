@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import StickyBar from '../../common/StickyBar/StickyBar';
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -10,7 +11,7 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    fade: 0,
+    compareList: [],
   };
 
   handlePageChange(newPage) {
@@ -26,6 +27,39 @@ class NewFurniture extends React.Component {
       fade: this.state.fade + 1,
     });
   }
+
+  compareProduct = (image, id) => {
+    console.log('ok', image, id);
+    this.setState({
+      compareList: [
+        ...this.state.compareList,
+        {
+          id: id,
+          image: image,
+        },
+      ],
+    });
+  };
+
+  handleAddCompare = (image, id) => {
+    if (this.state.compareList.length === 0) this.compareProduct(image, id);
+    if (this.state.compareList.length < 4) {
+      this.state.compareList.filter(item =>
+        item.id !== id ? this.compareProduct(image, id) : console.log('duplikat.')
+      );
+      this.props.changeCompare(id);
+    } else {
+      console.log('Nie porownac więcej produktow');
+    }
+  };
+
+  handleRemoveCompare = index => {
+    const compareProducts = this.state.compareList.filter(item => index !== item.id);
+    this.setState({
+      compareList: compareProducts,
+    });
+    this.props.changeCompare(index);
+  };
 
   render() {
     const { categories, products } = this.props;
@@ -78,6 +112,7 @@ class NewFurniture extends React.Component {
 
           <TransitionGroup className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
+
               <CSSTransition
                 key={item.id}
                 timeout={3000}
@@ -93,12 +128,24 @@ class NewFurniture extends React.Component {
                   exitActiveDone: styles.fadeExitActiveDone,
                 }}
               >
-                <div key={item.id} className='col-6 col-lg-3'>
-                  <ProductBox {...item} />
+                <div key={item.id} className='col-12 col-lg-3'>
+                  <ProductBox
+                    {...item}
+                    changeFav={this.props.addFav}
+                    addToCompare={this.handleAddCompare}
+                  />
                 </div>
               </CSSTransition>
             ))}
           </TransitionGroup>
+
+          {this.state.compareList.length ? (
+            <StickyBar
+              compareList={this.state.compareList}
+              removeFromCompare={this.handleRemoveCompare}
+            />
+          ) : null}
+
         </div>
       </div>
     );
@@ -106,6 +153,7 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
+  changeCompare: PropTypes.func,
   children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
