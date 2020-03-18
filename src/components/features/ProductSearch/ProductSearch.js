@@ -10,8 +10,8 @@ const ProductSearch = () => (
     <div className={styles.category}>
       <FontAwesomeIcon icon={faListUl} className={styles.icon} />
       <div className={styles.list}>
+        Select a category
         <ul>
-          Select a category
           {initialState.categories.map(item => (
             <li key={item.id}>{item.name}</li>
           ))}
