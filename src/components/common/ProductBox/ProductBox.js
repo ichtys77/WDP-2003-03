@@ -20,6 +20,7 @@ const ProductBox = ({
   image,
   favorite,
   compare,
+  oldPrice,
   changeFav,
   addToCompare,
 }) => {
@@ -61,6 +62,7 @@ const ProductBox = ({
           ))}
         </div>
       </div>
+
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
@@ -80,6 +82,11 @@ const ProductBox = ({
           </Button>
         </div>
         <div className={styles.price}>
+          {oldPrice && (
+            <Button noHover variant='outline'>
+              <div className={styles.oldPrice}>$ {oldPrice}</div>
+            </Button>
+          )}
           <Button className={styles.priceBtn} noHover variant='small'>
             $ {price}
           </Button>
@@ -100,6 +107,7 @@ ProductBox.propTypes = {
   changeFav: PropTypes.func,
   compare: PropTypes.bool,
   image: PropTypes.string,
+  oldPrice: PropTypes.number,
   addToCompare: PropTypes.func,
 };
 
