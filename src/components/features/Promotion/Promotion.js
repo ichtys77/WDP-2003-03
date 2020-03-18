@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { leftBanner, topBanner, bottomBanner } from '../../../data/dataStore';
+import { promoSection } from '../../../data/dataStore';
 
 import styles from './Promotion.module.scss';
 
@@ -13,9 +13,9 @@ const Promotion = children => (
           <div className={`col text-justify ${styles.boxCenter}`}>
             <div className={`row ${styles.textBox}`}>
               <div className='col align-self-end'>
-                <p>{leftBanner.title}</p>
-                <p>{leftBanner.subtitle}</p>
-                <p className={styles.discount}>{leftBanner.discount}</p>
+                <h4>{promoSection.leftBanner.title}</h4>
+                <h2>{promoSection.leftBanner.subtitle}</h2>
+                <h2 className={styles.discount}>{promoSection.leftBanner.discount}</h2>
               </div>
             </div>
           </div>
@@ -24,23 +24,23 @@ const Promotion = children => (
           <div className={`col-12  ${styles.rightBox}`}>
             <div className={`row justify-content-around ${styles.textBox}`}>
               <div className='col align-self-center text-center'>
-                <p>
-                  <b>{topBanner.bold}</b>
-                  {topBanner.title}{' '}
-                </p>
-                <p>{topBanner.subtitle}</p>
-                <p>{topBanner.cost}</p>
+                <h3>
+                  <strong>{promoSection.topBanner.bold}</strong>
+                  {promoSection.topBanner.title}{' '}
+                </h3>
+                <h5>{promoSection.topBanner.subtitle}</h5>
+                <h3 className={styles.gold}>{promoSection.topBanner.cost}</h3>
               </div>
             </div>
           </div>
           <div className={`col-12 ${styles.rightBox}`}>
             <div className={`row justify-content-end ${styles.textBox}`}>
               <div className='col align-self-center text-right'>
-                <p>
-                  <b>{bottomBanner.bold}</b>
-                  {bottomBanner.title}
-                </p>
-                <p>{bottomBanner.subtitle}</p>
+                <h4 className={styles.gold}>
+                  <strong>{promoSection.bottomBanner.bold}</strong>
+                  {promoSection.bottomBanner.title}
+                </h4>
+                <h5>{promoSection.bottomBanner.subtitle}</h5>
               </div>
             </div>
           </div>
