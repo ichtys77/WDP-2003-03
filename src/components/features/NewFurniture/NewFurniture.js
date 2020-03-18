@@ -20,17 +20,25 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
+  compareProduct = (image, id) => {
+    console.log('ok', image, id);
+    this.setState({
+      compareList: [
+        ...this.state.compareList,
+        {
+          id: id,
+          image: image,
+        },
+      ],
+    });
+  };
+
   handleAddCompare = (image, id) => {
+    if (this.state.compareList.length === 0) this.compareProduct(image, id);
     if (this.state.compareList.length < 4) {
-      this.setState({
-        compareList: [
-          ...this.state.compareList,
-          {
-            id: id,
-            image: image,
-          },
-        ],
-      });
+      this.state.compareList.filter(item =>
+        item.id !== id ? this.compareProduct(image, id) : console.log('duplikat.')
+      );
       this.props.changeCompare(id);
     } else {
       console.log('Nie porownac więcej produktow');
