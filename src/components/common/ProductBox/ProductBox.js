@@ -22,10 +22,16 @@ const ProductBox = ({
   compare,
   oldPrice,
   changeFav,
+  addToCompare,
 }) => {
   const handleChangeFav = e => {
     e.preventDefault();
     changeFav(id);
+  };
+
+  const handleCompare = e => {
+    e.preventDefault();
+    addToCompare(image, id);
   };
 
   return (
@@ -67,7 +73,11 @@ const ProductBox = ({
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' className={compare ? 'active' : ''}>
+          <Button
+            variant='outline'
+            className={compare ? 'active' : ''}
+            onClick={e => handleCompare(e, image, id)}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -98,6 +108,7 @@ ProductBox.propTypes = {
   compare: PropTypes.bool,
   image: PropTypes.string,
   oldPrice: PropTypes.number,
+  addToCompare: PropTypes.func,
 };
 
 export default ProductBox;
