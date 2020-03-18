@@ -39,7 +39,7 @@
 
   &:not(.noHover):hover {
     background-color: $button-outline;
-    color: white !important;
+    color: $button-color;
   }
 
   &.active {
