@@ -65,7 +65,7 @@ class BoxStars extends React.Component {
 
   render() {
     const { stars } = this.props;
-    const { starStatus, opinion } = this.state;
+    const { starStatus, rating } = this.state;
 
     return (
       <div className={styles.stars} onMouseOut={() => this.outOfStars()}>
@@ -83,16 +83,12 @@ class BoxStars extends React.Component {
               icon={
                 (i.active
                 ? i.active === 'active'
-                : i.id <= (stars || opinion))
+                : i.id <= (stars || rating))
                   ? faStar
                   : farStar
               }
               className={
-                (i.active
-                ? i.active === 'active'
-                : i.id <= opinion)
-                  ? styles.active
-                  : ''
+                (i.active ? i.active === 'active' : i.id <= rating) ? styles.active : ''
               }
             />
           </a>
@@ -104,6 +100,10 @@ class BoxStars extends React.Component {
 
 BoxStars.propTypes = {
   stars: PropTypes.number,
+  rating: PropTypes.number,
+  stars: PropTypes.number,
+  onStars: PropTypes.func,
+  setOpinion: PropTypes.func,
 };
 
 export default BoxStars;
