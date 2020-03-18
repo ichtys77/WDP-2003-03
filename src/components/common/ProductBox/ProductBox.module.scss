@@ -5,18 +5,23 @@
   border: 1px solid $product-root-border;
   margin-bottom: 2rem;
 
+  &:hover .photo .buttons{
+    display:flex
+  }
+
+
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
     background: {
       color: $product-photo-bg;
       size: contain;
-      position: center;  
+      position: center;
       repeat: no-repeat;
     }
     overflow: hidden;
     align-items: flex-end;
-   
+
     &:hover .buttons a {
       opacity: 1;
       //display: none;
@@ -73,6 +78,7 @@
     }
   }
 
+
   .line {
     margin: 0 10px;
     border-bottom: 1px solid $product-line-border;
@@ -95,10 +101,20 @@
     justify-content: space-between;
     align-items: center;
   }
-  
-  &:hover  {
-    .photo ~ .actions .price div {
-      background-color: $primary;
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .oldPrice {
+    text-decoration: line-through;
+
+    &:hover {
+      .photo ~ .actions .price div {
+        background-color: $primary;
+      }
     }
   }
+
 }
