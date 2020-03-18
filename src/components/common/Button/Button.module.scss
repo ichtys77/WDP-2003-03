@@ -5,11 +5,12 @@
 
 .main {
   background-color: $button-main-bg;
-  color: $butoon-color;
+  color: $butoon-color !important;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+  transition: $transition-time;
 
   &:not(.noHover):hover {
     color: $butoon-color !important;
@@ -24,6 +25,7 @@
   line-height: 24px;
   padding: 5px 10px;
   font-weight: 400;
+
 }
 
 .outline {
@@ -33,9 +35,17 @@
   color: $button-outline;
   font-size: 13px;
   line-height: 22px;
+  transition: $transition-time;
 
   &:not(.noHover):hover {
     background-color: $button-outline;
     color: $button-color;
   }
+
+  &.active {
+    background-color: $button-outline;
+    color: $butoon-color !important;
+  }
+
 }
+

@@ -19,6 +19,7 @@
         &:hover {
           color: $primary;
           text-decoration: none;
+          transition: $transition-time;
         }
       }
     }
@@ -38,5 +39,13 @@
     .icon {
       margin-right: 5px;
     }
+  }
+}
+@media(max-width: 768px) {
+  span {
+    display: none;
+  }
+  .topOptions ul li {
+    margin-right: 0;
   }
 }

@@ -4,7 +4,9 @@
   border: 1px solid $root-border-color;
   text-align: center;
   margin-top: 40px;
-
+  &:hover .button {
+    font-size: 40px;
+  }
   .iconWrapper {
     height: 60px;
     transform: translateY(-50%);
@@ -62,7 +64,7 @@
     }
   }
 
-  &.active {
+  &.active:hover {
     .iconWrapper {
       color: #ffffff;
 
