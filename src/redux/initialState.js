@@ -29,7 +29,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      compare: true,
+      compare: false,
       image:
         'https://images.pexels.com/photos/3773577/pexels-photo-3773577.png?cs=srgb&dl=modern-bed-inside-bedroom-3773577.jpg&fm=jpg',
     },
@@ -42,7 +42,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
-      compare: true,
+      compare: false,
       image:
         'https://images.pexels.com/photos/3773581/pexels-photo-3773581.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
@@ -81,7 +81,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      compare: true,
+      compare: false,
       image:
         'https://images.pexels.com/photos/3773575/pexels-photo-3773575.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },

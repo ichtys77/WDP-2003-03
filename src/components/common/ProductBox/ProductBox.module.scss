@@ -5,6 +5,11 @@
   border: 1px solid $product-root-border;
   margin-bottom: 2rem;
 
+  &:hover .photo .buttons{
+    display:flex
+  }
+
+
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
@@ -73,6 +78,7 @@
     }
   }
 
+
   .line {
     margin: 0 10px;
     border-bottom: 1px solid $product-line-border;
@@ -94,11 +100,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  &:hover  {
-    .photo ~ .actions .price div {
-      background-color: $primary;
-    }
   }
 }
