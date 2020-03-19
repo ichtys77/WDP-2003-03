@@ -5,7 +5,7 @@
 
 .main {
   background-color: $button-main-bg;
-  color: $butoon-color !important;
+  color: $button-color !important;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
@@ -13,7 +13,7 @@
   transition: $transition-time;
 
   &:not(.noHover):hover {
-    color: $butoon-color !important;
+    color: $button-color !important;
     background-color: $primary;
     text-decoration: none;
   }
@@ -40,13 +40,12 @@
 
   &:not(.noHover):hover {
     background-color: $button-outline;
-    color: $butoon-color;
-    
+    color: $button-color;
   }
 
   &.active {
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: $button-outline;
+    color: $button-color !important;
   }
 
 }
