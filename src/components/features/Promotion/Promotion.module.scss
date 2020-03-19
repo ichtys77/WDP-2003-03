@@ -7,7 +7,7 @@
     height: 420px;
     background-color: $p-leftbox-bg;
     padding: 0;
-    background-image: url($p-image-sofa) ;
+    background-image: url($p-img-sofa) ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     color: white;
@@ -49,7 +49,7 @@
     height: 195px;
     margin-left: 30px;
     width: auto;
-    background-image: url($p-image-chair) ;
+    background-image: url($p-img-chair) ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -60,7 +60,7 @@
     }
     &:nth-child(2) {
       background-color: $p-rightbox-second-bg;
-      background-image: url($p-image-bed) ;
+      background-image: url($p-img-bed) ;
       background-repeat: no-repeat;
       background-size: 100% 100%;
 
