@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
+import ClientFeedback from '../../layout/ClientFeedback/ClientFeedback';
 
 class NewFurniture extends React.Component {
   state = {
@@ -22,7 +22,6 @@ class NewFurniture extends React.Component {
   }
 
   compareProduct = (image, id) => {
-    console.log('ok', image, id);
     this.setState({
       compareList: [
         ...this.state.compareList,
@@ -55,7 +54,7 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, feedback } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -122,6 +121,34 @@ class NewFurniture extends React.Component {
                 ))}
             </div>
           </SwipeComponent>
+
+          <div className={styles.panelBar}>
+            <div className='row no-gutters align-items-end'>
+              <div className={'col ' + styles.heading}>
+                <h3>Client feedback</h3>
+              </div>
+              <div className={'col-auto ' + styles.dots}>
+                <ul>
+                  <li>
+                    <a> </a>
+                  </li>
+                  <li>
+                    <a> </a>
+                  </li>
+                  <li>
+                    <a> </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className='row'>
+            {feedback.map(item => (
+              <div key={item.id} className='col-12'>
+                <ClientFeedback {...item} />
+              </div>
+            ))}
+          </div>
           {this.state.compareList.length ? (
             <StickyBar
               compareList={this.state.compareList}
@@ -154,12 +181,21 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  feedback: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      picture: PropTypes.string,
+      description: PropTypes.string,
+    })
+  ),
   addFav: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  feedback: [],
 };
 
 export default NewFurniture;
