@@ -47,18 +47,19 @@
       }
 
       .cartCounter {
-        width: 28px;
+        width: 80px;
         height: 27px;
+        padding: 0 10px;
         border-radius: 14px;
         background-color: $header-bg;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: left;
         font-size: 14px;
         color: $cc-cartCounter-text-color;
         position: absolute;
         top: 50%;
-        right: 0;
+        left: 0;
         transform: translate(50%, -50%);
       }
 
