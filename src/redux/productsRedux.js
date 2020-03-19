@@ -11,9 +11,11 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const ADD_FAV = createActionName('ADD_FAV');
+const ADD_RATING = createActionName('ADD_RATING');
 
 /* action creators */
 export const addFavorite = payload => ({ payload, type: ADD_FAV });
+export const addRating = payload => ({ payload, type: ADD_RATING });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -27,7 +29,15 @@ export default function reducer(statePart = [], action = {}) {
       });
       return [...statePart, products];
     }
+
+    case ADD_RATING: {
+      
+      return [...statePart, products];
+    }
+
     default:
       return statePart;
   }
+
+
 }
