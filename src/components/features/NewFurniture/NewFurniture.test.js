@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import NewFurniture from './NewFurniture';
+jest.mock('../../common/SwipeComponent/SwipeComponent', () => 'SwipeComponent');
 
 const mockProps = {
   viewport: [{ mode: 'desktop' }, { mode: 'tablet' }, { mode: 'mobile' }],

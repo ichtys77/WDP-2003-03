@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+import StickyBar from '../../common/StickyBar/StickyBar';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    compareList: [],
   };
 
   handlePageChange(newPage) {
@@ -17,6 +20,39 @@ class NewFurniture extends React.Component {
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
+
+  compareProduct = (image, id) => {
+    console.log('ok', image, id);
+    this.setState({
+      compareList: [
+        ...this.state.compareList,
+        {
+          id: id,
+          image: image,
+        },
+      ],
+    });
+  };
+
+  handleAddCompare = (image, id) => {
+    if (this.state.compareList.length === 0) this.compareProduct(image, id);
+    if (this.state.compareList.length < 4) {
+      this.state.compareList.filter(item =>
+        item.id !== id ? this.compareProduct(image, id) : console.log('duplikat.')
+      );
+      this.props.changeCompare(id);
+    } else {
+      console.log('Nie porownac więcej produktow');
+    }
+  };
+
+  handleRemoveCompare = index => {
+    const compareProducts = this.state.compareList.filter(item => index !== item.id);
+    this.setState({
+      compareList: compareProducts,
+    });
+    this.props.changeCompare(index);
+  };
 
   render() {
     const { categories, products, viewport } = this.props;
@@ -29,7 +65,7 @@ class NewFurniture extends React.Component {
     } else if (viewport.mode === 'tablet') {
       itemsPerPage = 4;
     } else {
-      itemsPerPage = 1;
+      itemsPerPage = 2;
     }
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -76,15 +112,32 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts
-              .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
-              .map(item => (
-                <div key={item.id} className='col-12 col-lg-3'>
-                  <ProductBox {...item} changeFav={this.props.addFav} />
-                </div>
-              ))}
-          </div>
+
+          <SwipeComponent
+            itemsCount={pagesCount}
+            activeItem={this.state.activePage}
+            swipeAction={this.handlePageChange.bind(this)}
+          >
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
+                .map(item => (
+                  <div key={item.id} className='col-12 col-lg-3'>
+                    <ProductBox
+                      {...item}
+                      changeFav={this.props.addFav}
+                      addToCompare={this.handleAddCompare}
+                    />
+                  </div>
+                ))}
+            </div>
+          </SwipeComponent>
+          {this.state.compareList.length ? (
+            <StickyBar
+              compareList={this.state.compareList}
+              removeFromCompare={this.handleRemoveCompare}
+            />
+          ) : null}
         </div>
       </div>
     );
@@ -92,6 +145,7 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
+  changeCompare: PropTypes.func,
   children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({

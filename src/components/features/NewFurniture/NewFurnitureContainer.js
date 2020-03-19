@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import NewFurniture from './NewFurniture';
 import { getAll } from '../../../redux/categoriesRedux.js';
 import { getView } from '../../../redux/viewportRedux';
-import { getNew, addFavorite } from '../../../redux/productsRedux.js';
+import { getNew, changeCompare, addFavorite } from '../../../redux/productsRedux.js';
 
 const mapStateToProps = state => ({
   categories: getAll(state),
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  changeCompare: index => dispatch(changeCompare(index)),
   addFav: number => dispatch(addFavorite(number)),
 });
 
