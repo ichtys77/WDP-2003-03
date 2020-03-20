@@ -40,6 +40,7 @@ const initialState = {
       category: 'bed',
       price: 30,
       oldPrice: 60,
+      promoPrice: 15,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -331,6 +332,13 @@ const initialState = {
   cart: {
     products: [],
   },
+
+  tabs: [
+    { id: 'featured', name: 'Featured' },
+    { id: 'topselller', name: 'Top seller' },
+    { id: 'saleoff', name: 'Sale off' },
+    { id: 'toprated', name: 'Top rated' },
+  ],
 };
 
 export default initialState;

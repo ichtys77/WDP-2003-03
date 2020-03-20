@@ -1,10 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './FurnitureGallery.module.scss';
 import PromoProduct from './../PromoProduct/PromoProduct';
 import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGalleryActions';
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
+import initialState from '../../../redux/initialState';
 
 class FurnitureGallery extends React.Component {
   render() {
@@ -16,58 +17,36 @@ class FurnitureGallery extends React.Component {
               <h3>Furniture Gallery</h3>
               <div className={styles.menu}>
                 <ul>
-                  <li>
-                    <a href='#'>Featured</a>
-                  </li>
-                  <li>
-                    <a href='#'>Top seller</a>
-                  </li>
-                  <li>
-                    <a href='#'>Sale off</a>
-                  </li>
-                  <li>
-                    <a href='#'>Top rated</a>
-                  </li>
-                </ul>
-
-                {/* <ul>
-                  {gallery.map(item => (
-                    <li key={item.id}>
-                      <a href ="#">
-                        {item.name}
-                      </a>
+                  {initialState.tabs.map(tab => (
+                    <li key={tab.id}>
+                      <a href='#'>{tab.name}</a>
                     </li>
                   ))}
-                </ul> */}
+                </ul>
               </div>
               <div className={styles.product}>
-                <img src='https://images.pexels.com/photos/1139784/pexels-photo-1139784.jpeg?cs=srgb&dl=plush-toys-on-top-of-white-and-grey-mattress-inside-bedroom-1139784.jpg&fm=jpg'></img>
+                <img
+                  src={initialState.products[2].image}
+                  alt={initialState.products.name}
+                ></img>
                 <FurnitureGalleryActions />
-                <FurnitureGalleryPrice />
+                <FurnitureGalleryPrice
+                  name={initialState.products[2].name}
+                  price={initialState.products[2].price}
+                  promoPrice={initialState.products[2].promoPrice}
+                  stars={initialState.products[2].stars}
+                />
               </div>
               <div className={styles.slider}>
                 <div className={styles.arrow}>
                   <a href='#'>&#x3c;</a>
                 </div>
                 <div className={styles.thumbnails}>
-                  <div className={styles.thumbnail}>
-                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
-                  </div>
-                  <div className={styles.thumbnail}>
-                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
-                  </div>
-                  <div className={styles.thumbnail}>
-                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
-                  </div>
-                  <div className={styles.thumbnail}>
-                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
-                  </div>
-                  <div className={styles.thumbnail}>
-                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
-                  </div>
-                  <div className={styles.thumbnail}>
-                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
-                  </div>
+                  {initialState.products.slice(0, 6).map(product => (
+                    <div key={product.id} className={styles.thumbnail}>
+                      <img src={product.image} alt={initialState.products.name}></img>
+                    </div>
+                  ))}
                 </div>
                 <div className={styles.arrow}>
                   <a href='#'>&#x3e;</a>
@@ -81,5 +60,10 @@ class FurnitureGallery extends React.Component {
     );
   }
 }
+
+FurnitureGallery.propTypes = {
+  products: PropTypes.node,
+  tabs: PropTypes.node,
+};
 
 export default FurnitureGallery;

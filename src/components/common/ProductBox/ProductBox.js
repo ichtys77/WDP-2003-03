@@ -67,14 +67,14 @@ const ProductBox = ({
       <div className={styles.actions}>
         <div className={styles.outlines}>
           <Button
-            variant='outline'
+            variant='outlineColor'
             className={favorite ? 'active' : ''}
             onClick={e => handleChangeFav(e, id)}
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
-            variant='outline'
+            variant='outlineColor'
             className={compare ? 'active' : ''}
             onClick={e => handleCompare(e, image, id)}
           >
