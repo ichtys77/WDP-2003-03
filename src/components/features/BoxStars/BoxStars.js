@@ -11,13 +11,14 @@ import { Link } from 'react-router-dom';
 
 class BoxStars extends React.Component {
   static propTypes = {
+    //id: PropTypes.string,
     stars: PropTypes.number,
     rating: PropTypes.number,
     addRating: PropTypes.func,
   }
 
   state = {
-    rating: false,
+    rating: 0,
     starStatus: [
       {
         id: 1,
@@ -63,16 +64,39 @@ class BoxStars extends React.Component {
       });
     });
   }
+  
+  
+  setStars(e, star) {
+    
+    e.preventDefault();
+    //this.props.addRating(this.props.id);
+   
 
-  setStars(star) {
     this.setState({
       rating: star,
     });
   }
+  
+  /*
+ setStars(star, e) {     //e, 
+    
+  //e.preventDefault();
+  //this.props.addRating(this.props.id);
+
+
+this.setState(
+  {rating: star,
+  }); 
+//this.props.addRating(star);
+
+
+}
+*/
+
 
   render() {
-    const { stars, rating, addRating } = this.props;
-    const { starStatus, rating } = this.state;
+    const { id, stars, rating,    addRating} = this.props;   //addRating
+    const { starStatus } = this.state;    //rating
 
     return (
       <div className={styles.stars} onMouseOut={() => this.outOfStars()}>
@@ -82,24 +106,35 @@ class BoxStars extends React.Component {
             href='#'
             onClick={e => {
               e.preventDefault();
-              this.setStars(i.id);
-            }}
+              this.setStars(e, i.id);    //e,
+            }} 
+
           >
             <FontAwesomeIcon
               onMouseOver={() => this.onStars(i.id)}
               icon={
                 (i.active
-                ? i.active === 'active'
-                : i.id <= (stars || rating))
+                  ? i.active === 'active'
+                  : i.id <= (this.state.rating || this.props.rating || stars ))  //this.props.rating || this.state.rating
                   ? faStar
                   : farStar
               }
+
               className={
-                (i.active ? i.active === 'active' : i.id <= rating) ? styles.active : ''
+                i.active 
+                  ? 
+                  ((i.active === 'active') 
+                || (i.id <= (this.state.rating || this.props.rating))
+                    ? styles.active : '' )
+                  :
+                  (this.state.rating !=0) ?
+                    styles.active : ''
               }
             />
           </a>
         ))}
+
+        <div>{rating}</div>
       </div>
     );
   }
