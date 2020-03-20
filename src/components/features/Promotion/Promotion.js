@@ -9,7 +9,7 @@ const Promotion = children => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-        <div className={`col-6 ${styles.leftBox}`}>
+        <div className={`col-12 col-md-6 ${styles.leftBox}`}>
           <div className={`col text-justify ${styles.boxCenter}`}>
             <div className={`row ${styles.textBox}`}>
               <div className='col align-self-end'>
@@ -20,8 +20,8 @@ const Promotion = children => (
             </div>
           </div>
         </div>
-        <div className={'col-6'}>
-          <div className={`col-12  ${styles.rightBox}`}>
+        <div className={`col-12 col-md-6 ${styles.rightBox}`}>
+          <div className={`col-12  ${styles.rightBoxes}`}>
             <div className={`row justify-content-around ${styles.textBox}`}>
               <div className='col align-self-center text-center'>
                 <h3>
@@ -33,7 +33,7 @@ const Promotion = children => (
               </div>
             </div>
           </div>
-          <div className={`col-12 ${styles.rightBox}`}>
+          <div className={`col-12 ${styles.rightBoxes}`}>
             <div className={`row justify-content-end ${styles.textBox}`}>
               <div className='col align-self-center text-right'>
                 <h4 className={styles.gold}>
