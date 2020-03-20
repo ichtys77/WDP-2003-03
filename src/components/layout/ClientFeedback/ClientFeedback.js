@@ -12,7 +12,6 @@ const ClientFeedback = ({ id, name, status, picture, description }) => (
       <img className={styles.user_photo} src={picture} alt={name} />
       <div className={styles.user_description}>
         <div>
-          {' '}
           <strong>{name}</strong>
         </div>
         <div>{status}</div>
