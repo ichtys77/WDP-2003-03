@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
+import ClientFeedback from '../../layout/ClientFeedback/ClientFeedback';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
+    activePageFeedback: 0,
     activeCategory: 'bed',
     compareList: [],
   };
@@ -17,12 +18,15 @@ class NewFurniture extends React.Component {
     this.setState({ activePage: newPage });
   }
 
+  handlePageChangeFeedback(newPage) {
+    this.setState({ activePageFeedback: newPage });
+  }
+
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
 
   compareProduct = (image, id) => {
-    console.log('ok', image, id);
     this.setState({
       compareList: [
         ...this.state.compareList,
@@ -55,11 +59,12 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { categories, products, feedback } = this.props;
+    const { activeCategory, activePage, activePageFeedback } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const feedbackCount = Math.ceil(feedback.length);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -68,6 +73,20 @@ class NewFurniture extends React.Component {
           <a
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
+          >
+            page {i}
+          </a>
+        </li>
+      );
+    }
+
+    const dotsFeedback = [];
+    for (let i = 0; i < feedbackCount; i++) {
+      dotsFeedback.push(
+        <li>
+          <a
+            onClick={() => this.handlePageChangeFeedback(i)}
+            className={i === activePageFeedback && styles.active}
           >
             page {i}
           </a>
@@ -122,6 +141,32 @@ class NewFurniture extends React.Component {
                 ))}
             </div>
           </SwipeComponent>
+
+          <div className={styles.panelBar}>
+            <div className='row no-gutters align-items-end'>
+              <div className={'col ' + styles.heading}>
+                <h3>Client feedback</h3>
+              </div>
+              <div className={'col-auto ' + styles.dots}>
+                <ul>{dotsFeedback}</ul>
+              </div>
+            </div>
+          </div>
+          <SwipeComponent
+            itemsCount={feedbackCount}
+            activeItem={this.state.activePageFeedback}
+            swipeAction={this.handlePageChangeFeedback.bind(this)}
+          >
+            <div className='row'>
+              {feedback
+                .slice(activePageFeedback * 1, (activePageFeedback + 1) * 1)
+                .map(item => (
+                  <div key={item.id} className='col-12'>
+                    <ClientFeedback {...item} />
+                  </div>
+                ))}
+            </div>
+          </SwipeComponent>
           {this.state.compareList.length ? (
             <StickyBar
               compareList={this.state.compareList}
@@ -154,12 +199,21 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  feedback: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      picture: PropTypes.string,
+      description: PropTypes.string,
+    })
+  ),
   addFav: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  feedback: [],
 };
 
 export default NewFurniture;
