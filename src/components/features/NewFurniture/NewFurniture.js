@@ -150,6 +150,7 @@ NewFurniture.propTypes = {
       category: PropTypes.string,
       price: PropTypes.number,
       stars: PropTypes.number,
+      rating: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
     })

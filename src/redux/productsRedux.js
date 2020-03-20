@@ -41,9 +41,10 @@ export default function reducer(statePart = [], action = {}) {
       return [...statePart, products];
     }
 
-    case ADD_RATING: 
-      
-      //return [...statePart, products];
+    case ADD_RATING:
+      return [...statePart, action.payload];
+
+    /*
       return {
       ...statePart, 
       rating: [
@@ -51,12 +52,9 @@ export default function reducer(statePart = [], action = {}) {
         action.payload.rating,
       ],
        
-      };
-    
+      }; */
 
     default:
       return statePart;
   }
-
-
 }
