@@ -125,6 +125,7 @@ class NewFurniture extends React.Component {
                   timeout={3000}
                   classNames='fade'
                   appear={true}
+                  exit={false}
                   classNames={{
                     appear: styles.fadeAppear,
                     appearActive: styles.fadeAppearActive,

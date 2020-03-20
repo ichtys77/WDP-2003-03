@@ -101,9 +101,7 @@
     }
   }
 
-  :global(.container) > :global(.row) {
-    visibility: visible;
-  }
+}
 
   .fadeAppear {
     opacity: 0;
@@ -140,4 +138,3 @@
     opacity: 0;
     transition: opacity 3s;
   }
-}
