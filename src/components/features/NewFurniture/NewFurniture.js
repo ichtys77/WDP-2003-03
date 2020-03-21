@@ -22,7 +22,6 @@ class NewFurniture extends React.Component {
   }
 
   compareProduct = (image, id) => {
-    console.log('ok', image, id);
     this.setState({
       compareList: [
         ...this.state.compareList,
@@ -36,13 +35,14 @@ class NewFurniture extends React.Component {
 
   handleAddCompare = (image, id) => {
     if (this.state.compareList.length === 0) this.compareProduct(image, id);
-    if (this.state.compareList.length < 4) {
-      this.state.compareList.filter(item =>
-        item.id !== id ? this.compareProduct(image, id) : console.log('duplikat.')
-      );
-      this.props.changeCompare(id);
-    } else {
-      console.log('Nie porownac więcej produktow');
+    if (this.state.compareList.length <= 4) {
+      const duplikat = this.state.compareList.findIndex(item => item.id === id);
+      if (duplikat === -1) {
+        this.compareProduct(image, id);
+        this.props.changeCompare(id);
+      } else {
+        this.handleRemoveCompare(id);
+      }
     }
   };
 
