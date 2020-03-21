@@ -13,7 +13,9 @@ const ProductSearch = () => (
         Select a category
         <ul>
           {initialState.categories.map(item => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              <a href='#'>{item.name}</a>
+            </li>
           ))}
         </ul>
       </div>
