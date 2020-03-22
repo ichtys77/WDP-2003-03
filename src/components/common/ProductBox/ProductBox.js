@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
-import BoxStars from '../../features/BoxStars/BoxStars';
+import BoxStars from '../../features/BoxStars/BoxStarsContainer';
 
 const ProductBox = ({
   id,
@@ -24,7 +24,6 @@ const ProductBox = ({
   compare,
   oldPrice,
   changeFav,
-  //addRating,
   addToCompare,
 }) => {
   const handleChangeFav = e => {
@@ -54,8 +53,7 @@ const ProductBox = ({
 
       <div className={styles.content}>
         <h5>{name}</h5>
-        <BoxStars product={id} stars={stars} rating={rating} />{' '}
-        {/*addRating={addRating} */}
+        <BoxStars id={id} stars={stars} rating={rating} />
       </div>
 
       <div className={styles.line}></div>
