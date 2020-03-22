@@ -17,7 +17,7 @@ const ADD_RATING = createActionName('ADD_RATING');
 // action creators
 export const changeCompare = payload => ({ payload, type: CHANGE_COMPARE });
 export const addFavorite = payload => ({ payload, type: ADD_FAV });
-export const addRating = payload => ({ payload, type: ADD_RATING });
+export const addRating = payload => ({ payload: { ...payload }, type: ADD_RATING });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -41,18 +41,15 @@ export default function reducer(statePart = [], action = {}) {
       return [...statePart, products];
     }
 
-    case ADD_RATING:
-      return [...statePart, action.payload];
-
-    /*
-      return {
-      ...statePart, 
-      rating: [
-        ...statePart.rating,
-        action.payload.rating,
-      ],
-       
-      }; */
+    case ADD_RATING: {
+      let products = statePart.map(item => {
+        if (item.id === action.payload.productId) {
+          item.rating = action.payload.number;
+        }
+        return item;
+      });
+      return [...statePart, products];
+    }
 
     default:
       return statePart;
