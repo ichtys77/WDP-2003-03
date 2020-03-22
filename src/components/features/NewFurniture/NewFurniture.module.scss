@@ -49,6 +49,7 @@
             font-size: 18px;
             display: block;
             transition: $transition-time;
+            cursor: pointer;
 
             &.active,
             &:hover {
