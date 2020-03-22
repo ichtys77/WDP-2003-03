@@ -40,13 +40,14 @@ class NewFurniture extends React.Component {
 
   handleAddCompare = (image, id) => {
     if (this.state.compareList.length === 0) this.compareProduct(image, id);
-    if (this.state.compareList.length < 4) {
-      this.state.compareList.filter(item =>
-        item.id !== id ? this.compareProduct(image, id) : console.log('duplikat.')
-      );
-      this.props.changeCompare(id);
-    } else {
-      console.log('Nie porownac więcej produktow');
+    if (this.state.compareList.length <= 4) {
+      const duplicate = this.state.compareList.findIndex(item => item.id === id);
+      if (duplicate === -1) {
+        this.compareProduct(image, id);
+        this.props.changeCompare(id);
+      } else {
+        this.handleRemoveCompare(id);
+      }
     }
   };
 
