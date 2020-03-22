@@ -117,11 +117,11 @@
 
   .oldPrice {
     text-decoration: line-through;
+  }
 
-    &:hover {
-      .photo ~ .actions .price div {
-        background-color: $primary;
-      }
+  &:hover {
+    .photo ~ .actions .price > div:last-of-type {
+      background-color: $primary;
     }
   }
 
