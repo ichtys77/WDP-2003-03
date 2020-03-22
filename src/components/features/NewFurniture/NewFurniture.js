@@ -36,8 +36,8 @@ class NewFurniture extends React.Component {
   handleAddCompare = (image, id) => {
     if (this.state.compareList.length === 0) this.compareProduct(image, id);
     if (this.state.compareList.length <= 4) {
-      const duplikat = this.state.compareList.findIndex(item => item.id === id);
-      if (duplikat === -1) {
+      const duplicate = this.state.compareList.findIndex(item => item.id === id);
+      if (duplicate === -1) {
         this.compareProduct(image, id);
         this.props.changeCompare(id);
       } else {
