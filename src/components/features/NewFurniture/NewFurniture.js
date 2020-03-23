@@ -4,22 +4,16 @@ import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
-import ClientFeedback from '../../layout/ClientFeedback/ClientFeedback';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
-    activePageFeedback: 0,
     activeCategory: 'bed',
     compareList: [],
   };
 
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
-  }
-
-  handlePageChangeFeedback(newPage) {
-    this.setState({ activePageFeedback: newPage });
   }
 
   handleCategoryChange(newCategory) {
@@ -60,12 +54,11 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products, feedback } = this.props;
-    const { activeCategory, activePage, activePageFeedback } = this.state;
+    const { categories, products } = this.props;
+    const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
-    const feedbackCount = Math.ceil(feedback.length);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -80,21 +73,6 @@ class NewFurniture extends React.Component {
         </li>
       );
     }
-
-    const dotsFeedback = [];
-    for (let i = 0; i < feedbackCount; i++) {
-      dotsFeedback.push(
-        <li>
-          <a
-            onClick={() => this.handlePageChangeFeedback(i)}
-            className={i === activePageFeedback && styles.active}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
-
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -138,32 +116,6 @@ class NewFurniture extends React.Component {
                       changeFav={this.props.addFav}
                       addToCompare={this.handleAddCompare}
                     />
-                  </div>
-                ))}
-            </div>
-          </SwipeComponent>
-
-          <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col ' + styles.heading}>
-                <h3>Client feedback</h3>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dotsFeedback}</ul>
-              </div>
-            </div>
-          </div>
-          <SwipeComponent
-            itemsCount={feedbackCount}
-            activeItem={this.state.activePageFeedback}
-            swipeAction={this.handlePageChangeFeedback.bind(this)}
-          >
-            <div className='row'>
-              {feedback
-                .slice(activePageFeedback * 1, (activePageFeedback + 1) * 1)
-                .map(item => (
-                  <div key={item.id} className='col-12'>
-                    <ClientFeedback {...item} />
                   </div>
                 ))}
             </div>
