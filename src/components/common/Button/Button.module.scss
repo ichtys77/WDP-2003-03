@@ -10,7 +10,7 @@
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
-  transition: $transition-time;
+  @include hover-animation;
 
   &:not(.noHover):hover {
     color: $button-color !important;
@@ -35,7 +35,7 @@
   color: $button-outline;
   font-size: 13px;
   line-height: 22px;
-  transition: $transition-time;
+  @include hover-animation;
 
   &:not(.noHover):hover {
     background-color: $button-outline;

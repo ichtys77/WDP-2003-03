@@ -48,7 +48,7 @@
             text-decoration: none;
             font-size: 18px;
             display: block;
-            transition: $transition-time;
+            @include hover-animation;
 
             &.active,
             &:hover {
@@ -81,6 +81,7 @@
         li {
           display: inline-block;
           margin-left: 0.5rem;
+          @include hover-animation;
 
           a {
             display: block;
@@ -89,7 +90,6 @@
             border-radius: 6px;
             background-color: $nf-dots-link-bg;
             font-size: 0;
-            transition: $transition-time;
 
             &.active,
             &:hover {
