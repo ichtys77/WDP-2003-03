@@ -20,25 +20,11 @@ const FurnitureGalleryActions = ({
   image,
   compare,
 }) => {
-  /* const handleChangeFav = e => {
-    e.preventDefault();
-    changeFav(id);
-  };
-
-  const handleCompare = e => {
-    e.preventDefault();
-    addToCompare(image, id);
-  }; */
-
   return (
     <div className={styles.actions}>
       <div className={styles.action}>
         <div className={styles.icon}>
-          <Button
-            variant='outlineColor'
-            /* className={favorite ? 'active' : ''}
-            onClick={e => handleChangeFav(e, id)} */
-          >
+          <Button variant='outlineColor'>
             <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
           </Button>
         </div>
@@ -47,11 +33,7 @@ const FurnitureGalleryActions = ({
 
       <div className={styles.action}>
         <div className={styles.icon}>
-          <Button
-            variant='outlineColor'
-            /* className={compare ? 'active' : ''}
-            onClick={e => handleCompare(e, image, id)} */
-          >
+          <Button variant='outlineColor'>
             <FontAwesomeIcon icon={faExchangeAlt}></FontAwesomeIcon>
           </Button>
         </div>
