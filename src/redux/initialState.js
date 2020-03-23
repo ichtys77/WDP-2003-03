@@ -339,6 +339,49 @@ const initialState = {
     { id: 'saleoff', name: 'Sale off' },
     { id: 'toprated', name: 'Top rated' },
   ],
+
+  feedback: [
+    {
+      id: 1,
+      name: 'John Smith',
+      status: 'Future Client',
+      picture: 'https://randomuser.me/api/portraits/men/75.jpg',
+      description:
+        'Mattis pellentesque id nibh tortor id. Amet venenatis urna cursus eget nunc scelerisque. Vitae suscipit tellus mauris a. Cursus euismod quis viverra nibh. Scelerisque purus semper eget duis at. Pretium lectus quam id leo in vitae turpis massa sed. Quam vulputate dignissim suspendisse in est ante in nibh. Pharetra massa massa ultricies mi. ',
+    },
+    {
+      id: 2,
+      name: 'Antonio Hayes',
+      status: 'Client',
+      picture: 'https://randomuser.me/api/portraits/men/4.jpg',
+      description:
+        'Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Nam aliquam sem et tortor consequat id. Praesent elementum facilisis leo vel. Cras adipiscing enim eu turpis. Nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Ut sem nulla pharetra diam. In fermentum et sollicitudin ac orci phasellus egestas. In est ante in nibh mauris cursus mattis molestie.',
+    },
+    {
+      id: 3,
+      name: 'Riley Meyer',
+      status: 'VIP Client',
+      picture: 'https://randomuser.me/api/portraits/women/64.jpg',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit ut aliquam purus sit amet. Sit amet tellus cras adipiscing enim eu turpis. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar. Lacus vel facilisis volutpat est velit egestas. Ante in nibh mauris cursus. ',
+    },
+    {
+      id: 4,
+      name: 'Hailey Cook',
+      status: 'Future Client',
+      picture: 'https://randomuser.me/api/portraits/women/15.jpg',
+      description:
+        'Turpis egestas sed tempus urna et pharetra. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris. Velit aliquet sagittis id consectetur purus ut. Feugiat vivamus at augue eget arcu dictum varius duis at. Velit ut tortor pretium viverra. Ac ut consequat semper viverra nam libero justo. In massa tempor nec feugiat nisl pretium fusce. ',
+    },
+    {
+      id: 5,
+      name: 'Vanessa Berry',
+      status: 'Client',
+      picture: 'https://randomuser.me/api/portraits/women/24.jpg',
+      description:
+        'Euismod nisi porta lorem mollis. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Integer enim neque volutpat ac. Bibendum at varius vel pharetra vel turpis nunc. Fusce id velit ut tortor pretium viverra. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. In aliquam sem fringilla ut morbi tincidunt augue interdum.',
+    },
+  ],
 };
 
 export default initialState;
