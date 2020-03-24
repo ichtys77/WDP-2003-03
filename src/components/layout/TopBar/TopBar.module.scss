@@ -15,11 +15,11 @@
       a {
         color: $tb-link-color;
         font-size: 13px;
+        @include hover-animation;
 
         &:hover {
           color: $primary;
           text-decoration: none;
-          transition: $transition-time;
         }
       }
     }

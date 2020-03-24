@@ -44,6 +44,7 @@ const initialState = {
       category: 'bed',
       price: 30,
       oldPrice: 60,
+      promoPrice: 15,
       stars: 2,
       rating: 0,
       hotDeals: false,
@@ -1342,7 +1343,13 @@ const initialState = {
   cart: {
     products: [],
   },
-  
+
+  tabs: [
+    { id: 'featured', name: 'Featured' },
+    { id: 'topselller', name: 'Top seller' },
+    { id: 'saleoff', name: 'Sale off' },
+    { id: 'toprated', name: 'Top rated' },
+  ],
 
   feedback: [
     {
@@ -1394,7 +1401,8 @@ const initialState = {
       subtitle: 'SAVE UP TO 50% OF ALL FURNITURE',
       btnName: 'SHOP NOW',
       imgAlt: 'discount',
-      image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+      image:
+        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
   ],
 };
