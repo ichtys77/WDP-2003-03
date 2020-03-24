@@ -48,6 +48,7 @@ const ProductBox = ({
           </Button>
         </div>
       </div>
+
       <div className={styles.content}>
         <h5>{name}</h5>
         <div className={styles.stars}>
