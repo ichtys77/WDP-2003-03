@@ -49,3 +49,25 @@
 
 }
 
+.white {
+  background-color: $button-color;
+  color: $button-main-bg;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 15px 30px;
+  transition: $transition-time;
+  border-radius: 3px;
+
+  &:hover {
+    color: $button-color;
+    background-color: $primary;
+    text-decoration: none;
+  }
+
+  a {
+    z-index: 1;
+    text-decoration: none;
+  }
+}
+
