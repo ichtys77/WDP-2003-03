@@ -6,6 +6,8 @@ import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
 import ClientFeedback from '../../layout/ClientFeedback/ClientFeedback';
 
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -15,7 +17,10 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+      fade: this.state.fade + 1,
+    });
   }
 
   handlePageChangeFeedback(newPage) {
@@ -23,7 +28,10 @@ class NewFurniture extends React.Component {
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({
+      activeCategory: newCategory,
+      fade: this.state.fade + 1,
+    });
   }
 
   compareProduct = (image, id) => {
@@ -128,19 +136,36 @@ class NewFurniture extends React.Component {
             activeItem={this.state.activePage}
             swipeAction={this.handlePageChange.bind(this)}
           >
-            <div className='row'>
+            <TransitionGroup className='row'>
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
-                  <div key={item.id} className='col-12 col-lg-3'>
-                    <ProductBox
-                      {...item}
-                      changeFav={this.props.addFav}
-                      addToCompare={this.handleAddCompare}
-                    />
-                  </div>
+                  <CSSTransition
+                    key={item.id}
+                    timeout={3000}
+                    classNames='fade'
+                    appear={true}
+                    exit={false}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                      exitActiveDone: styles.fadeExitActiveDone,
+                    }}
+                  >
+                    <div key={item.id} className='col-12 col-lg-3'>
+                      <ProductBox
+                        {...item}
+                        changeFav={this.props.addFav}
+                        addToCompare={this.handleAddCompare}
+                      />
+                    </div>
+                  </CSSTransition>
                 ))}
-            </div>
+            </TransitionGroup>
           </SwipeComponent>
 
           <div className={styles.panelBar}>
