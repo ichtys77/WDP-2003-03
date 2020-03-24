@@ -7,7 +7,6 @@ import FeaturedProductsBox from '../../common/FeaturedProductsBox/FeaturedProduc
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-
 class FeaturedProducts extends React.Component {
   static propTypes = {
     children: PropTypes.node,
@@ -42,7 +41,7 @@ class FeaturedProducts extends React.Component {
 
   render () {
     
-    const { products, title, titleBold, subtitle, btnName, imgBg, imgAlt } = this.props;
+    const { title, titleBold, subtitle, btnName, imgBg, imgAlt, products } = this.props;
     const hotDealProducts = products.filter(item => item.hotDeals === true);
 
     const dots = [];
@@ -57,7 +56,6 @@ class FeaturedProducts extends React.Component {
     }
     
     return (
-
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
@@ -69,12 +67,12 @@ class FeaturedProducts extends React.Component {
                   <ul>{dots}</ul>
                 </div>
               </div>
-
+              
               <div>
                 {hotDealProducts.map(item => (
                   <FeaturedProductsBox key ={item.id} {...item}/>
                 ))}
-              </div>
+                </div>
             </div>
 
             <div className='col-8 col-md-8'>
