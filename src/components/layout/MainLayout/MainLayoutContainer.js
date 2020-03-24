@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addViewport: data => dispatch(addViewport(data)),
+  addViewport: mode => dispatch(addViewport(mode)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
