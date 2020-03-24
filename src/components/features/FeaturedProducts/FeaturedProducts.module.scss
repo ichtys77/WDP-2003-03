@@ -1,0 +1,121 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: 2rem 0 0 0;
+  
+  .altPanel {
+    display: flex;
+    justify-content: space-between;
+    background-color: $featured-panel-bg;
+    color: $featured-panel-color;
+    padding: 10px;
+  }
+
+  .shopNow {
+    background-color: $product-root-bg;
+    border: 1px solid $product-root-border;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .shadow {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $featured-panel-bg;
+      color: $featured-panel-color;
+      height: 50%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      opacity: 0.5;
+      transform: translateY(-50%);
+
+      .title {
+        font-size: 2.8rem;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+      }
+    } 
+
+    .buttons {
+      position: absolute;
+      top: 68%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    .arrow {
+      width: 100%;
+      position: absolute;
+      bottom:0;
+      left: 0;
+      background-color: $featured-panel-bg;
+      text-align: center;
+      .arrowLeft {
+        display:inline-block;
+        width: 50%;
+        padding:5px;
+      }
+      .arrowRight {
+        display:inline-block;
+        width: 50%;
+        padding:5px;
+      }
+      .arrowLeft,.arrowRight{
+        &:hover{
+          background-color: $primary;
+          color: $featured-panel-color;
+        }
+      }
+    }
+  }
+
+
+  .dots {
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 0;
+      list-style: none;
+      background-color: $featured-panel-bg;
+
+      li {
+        display: inline-block;
+        margin-left: 0.5rem;
+        @include hover-animation;
+
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 6px;
+          background-color: $nf-dots-link-bg;
+          font-size: 0;
+
+          &.active,
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+}
+  
