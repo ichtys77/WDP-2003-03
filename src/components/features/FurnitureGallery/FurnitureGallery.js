@@ -2,13 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './FurnitureGallery.module.scss';
-import PromoProduct from './../PromoProduct/PromoProduct';
+import PromoProduct from './../PromoProduct/PromoProductContainer';
 import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGalleryActions';
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
-import initialState from '../../../redux/initialState';
+import { Link } from 'react-router-dom';
 
 class FurnitureGallery extends React.Component {
+  handleCategoryChange(event, newCategory) {
+    this.setState({ activeCategory: newCategory });
+    event.preventDefault();
+    console.log('click');
+  }
+
   render() {
+    const { tabs, products } = this.props;
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -17,24 +25,26 @@ class FurnitureGallery extends React.Component {
               <h3>Furniture Gallery</h3>
               <div className={styles.menu}>
                 <ul>
-                  {initialState.tabs.map(tab => (
+                  {tabs.map(tab => (
                     <li key={tab.id}>
-                      <a href='#'>{tab.name}</a>
+                      <Link
+                        to='/'
+                        onClick={event => this.handleCategoryChange(event, tab.id)}
+                      >
+                        {tab.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className={styles.product}>
-                <img
-                  src={initialState.products[2].image}
-                  alt={initialState.products.name}
-                ></img>
+                <img src={products[2].image} alt={products.name}></img>
                 <FurnitureGalleryActions />
                 <FurnitureGalleryPrice
-                  name={initialState.products[2].name}
-                  price={initialState.products[2].price}
-                  promoPrice={initialState.products[2].promoPrice}
-                  stars={initialState.products[2].stars}
+                  name={products[2].name}
+                  price={products[2].price}
+                  promoPrice={products[2].promoPrice}
+                  stars={products[2].stars}
                 />
               </div>
               <div className={styles.slider}>
@@ -42,9 +52,9 @@ class FurnitureGallery extends React.Component {
                   <a href='#'>&#x3c;</a>
                 </div>
                 <div className={styles.thumbnails}>
-                  {initialState.products.slice(0, 6).map(product => (
+                  {products.slice(0, 6).map(product => (
                     <div key={product.id} className={styles.thumbnail}>
-                      <img src={product.image} alt={initialState.products.name}></img>
+                      <img src={product.image} alt=''></img>
                     </div>
                   ))}
                 </div>
@@ -62,8 +72,20 @@ class FurnitureGallery extends React.Component {
 }
 
 FurnitureGallery.propTypes = {
-  products: PropTypes.node,
-  tabs: PropTypes.node,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      category: PropTypes.string,
+      price: PropTypes.number,
+      stars: PropTypes.number,
+      promo: PropTypes.string,
+      newFurniture: PropTypes.bool,
+      image: PropTypes.string,
+      promoPrice: PropTypes.number,
+    })
+  ),
+  tabs: PropTypes.array,
 };
 
 export default FurnitureGallery;

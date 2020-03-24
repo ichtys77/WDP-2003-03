@@ -1,6 +1,7 @@
 @import "../../../styles/settings.scss";
 
 $border-color: #e0dede;
+$background-color: #e3e1e1;
 
 .gallery {
   width: 550px;
@@ -67,7 +68,7 @@ $border-color: #e0dede;
         }
 
         &:hover {
-          background-color: #e3e1e1;
+          background-color: $background-color;
           border-bottom: none;
           border-top: 3px solid $primary;
 
@@ -86,7 +87,7 @@ $border-color: #e0dede;
   }
 
   .product {
-    background-color: #e3e1e1;
+    background-color: $background-color;
     height: 390px;
     position: relative;
     border-left: 1px solid $border-color;
@@ -130,7 +131,7 @@ $border-color: #e0dede;
       height: 100%;
       background-color: yellow;
       margin: 5px;
-      color: white;
+      color: $background-color;
       overflow: hidden;
 
       .active {

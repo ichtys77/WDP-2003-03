@@ -17,6 +17,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -30,6 +31,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/3773577/pexels-photo-3773577.png?cs=srgb&dl=modern-bed-inside-bedroom-3773577.jpg&fm=jpg',
@@ -45,6 +47,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/3773581/pexels-photo-3773581.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -58,6 +61,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/3675263/pexels-photo-3675263.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -71,6 +75,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -85,6 +90,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/3773575/pexels-photo-3773575.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -98,6 +104,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/2806350/pexels-photo-2806350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -111,6 +118,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/2029694/pexels-photo-2029694.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -125,6 +133,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'featured',
       compare: false,
       image:
         'https://images.pexels.com/photos/2775320/pexels-photo-2775320.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -138,6 +147,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/2029731/pexels-photo-2029731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -151,6 +161,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -164,6 +175,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/3659683/pexels-photo-3659683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -177,6 +189,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/3637740/pexels-photo-3637740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -190,6 +203,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/2030119/pexels-photo-2030119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -204,6 +218,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/1150962/pexels-photo-1150962.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -217,6 +232,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/376531/pexels-photo-376531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -231,6 +247,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -244,6 +261,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'saleoff',
       compare: false,
       image:
         'https://images.pexels.com/photos/3773581/pexels-photo-3773581.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -257,6 +275,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/763148/pexels-photo-763148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -270,6 +289,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3144580/pexels-photo-3144580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -284,6 +304,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/2775320/pexels-photo-2775320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -297,6 +318,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3753435/pexels-photo-3753435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -310,6 +332,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/172872/pexels-photo-172872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -324,6 +347,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3201758/pexels-photo-3201758.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -337,6 +361,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/2082090/pexels-photo-2082090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -350,6 +375,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3229076/pexels-photo-3229076.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -363,6 +389,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3316918/pexels-photo-3316918.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -376,6 +403,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'topselller',
       compare: false,
       image:
         'https://images.pexels.com/photos/271696/pexels-photo-271696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -389,6 +417,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/3623770/pexels-photo-3623770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -402,6 +431,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/1697232/pexels-photo-1697232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -415,6 +445,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
@@ -428,6 +459,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/358572/pexels-photo-358572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -441,6 +473,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/1647662/pexels-photo-1647662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -454,6 +487,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -467,6 +501,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/2745090/pexels-photo-2745090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -480,6 +515,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/373530/pexels-photo-373530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -493,6 +529,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      tabs: 'toprated',
       compare: false,
       image:
         'https://images.pexels.com/photos/373548/pexels-photo-373548.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
