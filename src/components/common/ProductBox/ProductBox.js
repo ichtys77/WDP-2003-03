@@ -48,7 +48,7 @@ const ProductBox = ({
           </Button>
         </div>
       </div>
-    
+
       <div className={styles.content}>
         <h5>{name}</h5>
         <div className={styles.stars}>
@@ -63,7 +63,7 @@ const ProductBox = ({
           ))}
         </div>
       </div>
-    
+
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
@@ -104,6 +104,8 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   favorite: PropTypes.bool,
+  id: PropTypes.string,
+  changeFav: PropTypes.func,
   compare: PropTypes.bool,
   image: PropTypes.string,
   oldPrice: PropTypes.number,
