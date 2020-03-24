@@ -9,7 +9,6 @@
     display:flex
   }
 
-
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
@@ -21,7 +20,7 @@
     }
     overflow: hidden;
     align-items: flex-end;
-
+    
     &:hover .buttons a {
       opacity: 1;
       //display: none;
@@ -78,7 +77,6 @@
     }
   }
 
-
   .line {
     margin: 0 10px;
     border-bottom: 1px solid $product-line-border;
@@ -101,6 +99,7 @@
     justify-content: space-between;
     align-items: center;
   }
+
   .price {
     display: flex;
     justify-content: center;
@@ -109,12 +108,11 @@
 
   .oldPrice {
     text-decoration: line-through;
-
-    &:hover {
-      .photo ~ .actions .price div {
-        background-color: $primary;
-      }
-    }
   }
 
+  &:hover {
+    .photo ~ .actions .price > div:last-of-type {
+      background-color: $primary;
+    }
+  }
 }

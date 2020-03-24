@@ -4,12 +4,15 @@ import styles from './Homepage.module.scss';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../features/Feedback/FeedbackContainer';
+import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGallery';
+import Promotion from '../../features/Promotion/Promotion';
 
 const Homepage = () => (
   <div className={styles.root}>
     <FeatureBoxes />
     <NewFurniture />
     <Feedback />
+    <FurnitureGallery />
   </div>
 );
 

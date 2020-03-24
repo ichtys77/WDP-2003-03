@@ -5,6 +5,8 @@ import ProductBox from '../../common/ProductBox/ProductBox';
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
 
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -13,11 +15,17 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+      fade: this.state.fade + 1,
+    });
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({
+      activeCategory: newCategory,
+      fade: this.state.fade + 1,
+    });
   }
 
   compareProduct = (image, id) => {
@@ -106,19 +114,27 @@ class NewFurniture extends React.Component {
             activeItem={this.state.activePage}
             swipeAction={this.handlePageChange.bind(this)}
           >
-            <div className='row'>
+            <TransitionGroup className='row'>
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
-                  <div key={item.id} className='col-12 col-lg-3'>
-                    <ProductBox
-                      {...item}
-                      changeFav={this.props.addFav}
-                      addToCompare={this.handleAddCompare}
-                    />
-                  </div>
+                  <CSSTransition
+                    key={item.id}
+                    timeout={3000}
+                    classNames='fade'
+                    appear={true}
+                    exit={false}
+                  >
+                    <div key={item.id} className='col-12 col-lg-3'>
+                      <ProductBox
+                        {...item}
+                        changeFav={this.props.addFav}
+                        addToCompare={this.handleAddCompare}
+                      />
+                    </div>
+                  </CSSTransition>
                 ))}
-            </div>
+            </TransitionGroup>
           </SwipeComponent>
           {this.state.compareList.length ? (
             <StickyBar
