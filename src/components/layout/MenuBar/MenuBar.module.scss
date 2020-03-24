@@ -35,10 +35,10 @@
       border-top: 4px solid $mb-link-border;
       font-weight: 500;
       letter-spacing: 1px;
+      @include hover-animation;
 
       &:hover,
       &.active {
-        transition: $transition-time;
         background-color: $primary;
         color: $mb-link-active;
         border-color: $primary;
@@ -50,3 +50,134 @@
     }
   }
 }
+
+
+@media (max-width: 767px) {
+  .root {
+
+    :global(.container) > :global(.row) {
+      min-height: 120px;
+    }
+
+    .menu {
+      display: flex;
+      align-self: stretch;
+      width: 100%;
+      z-index: 999;
+      position: relative;
+      top: 20px;
+      visibility: hidden;
+
+      .visible {
+        visibility: visible;
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+
+      ul {
+        flex-direction: column;
+        width: 100%;
+        background-color: #ffffff;
+
+        li {
+          width: 100%;
+        }
+      }
+
+      a {
+        width: 100%;
+        justify-content: center;
+        background-color: #ffffff;
+        border-top: none;
+        border-bottom: 1px solid $primary;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        &:hover,
+        &.active {
+          border-color: $primary;
+        }
+
+        &.active {
+          border-color: $primary;
+        }
+      }
+
+      li:first-child .active {
+        border: none;
+        border-top: 4px solid $text-color;
+      }
+
+      li:last-child {
+        border-bottom: 4px solid $primary;
+      }
+
+    }
+
+    .mobileMenu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      top: 5px;
+
+      .icon {
+        color: $primary;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .root {
+    :global(.container) > :global(.row) {
+      min-height: 125px;
+      padding-bottom: 10px;
+    }
+
+    .menu {
+      order: -1;
+      margin-bottom: 10px;
+    }
+
+    .mobileMenu {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .root {
+    :global(.container) > :global(.row) {
+      min-height: 125px;
+      padding-bottom: 10px;
+    }
+
+    .menu {
+      order: -1;
+    }
+
+    .mobileMenu {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .root {
+    :global(.container) > :global(.row) {
+      min-height: 84px;
+    }
+
+    .mobileMenu {
+      display: none;
+    }
+  }
+}
+
+
+
+
+

@@ -3,11 +3,13 @@ import NewFurniture from './NewFurniture';
 import { getAll } from '../../../redux/categoriesRedux.js';
 import { getView } from '../../../redux/viewportRedux';
 import { getNew, changeCompare, addFavorite } from '../../../redux/productsRedux.js';
+import { getAllFeedback } from '../../../redux/feedbackRedux';
 
 const mapStateToProps = state => ({
   categories: getAll(state),
   products: getNew(state),
   viewport: getView(state),
+  feedback: getAllFeedback(state),
 });
 
 const mapDispatchToProps = dispatch => ({
