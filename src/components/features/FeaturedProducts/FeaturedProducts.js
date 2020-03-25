@@ -21,7 +21,7 @@ class FeaturedProducts extends React.Component {
       price: PropTypes.number,
       stars: PropTypes.number,
       promo: PropTypes.string,
-      hotDeals: PropTypes.string,
+      hotDeals: PropTypes.bool,
       promotion: PropTypes.bool,
       image: PropTypes.string,
     })
@@ -71,7 +71,7 @@ class FeaturedProducts extends React.Component {
     const { products, slides } = this.props;
     const { activeSlideSmall, activeSlidePage, fade } = this.state;
 
-    const hotDealProducts = products.filter(item => item.hotDeals === true);
+    const hotDealProducts = products.filter(item => item.hotDeals == true);
 
     const hotDealCount = hotDealProducts.length;
 
@@ -82,7 +82,7 @@ class FeaturedProducts extends React.Component {
     const dotsSlides = [];
     for (let i = 0; i < hotDealCount; i++) {
       dotsSlides.push(
-        <li>
+        <li key={i}>
           <a
           onClick={() => this.handleSlideSmChange(i)}
           className={i === activeSlideSmall && styles.active}>
@@ -132,13 +132,14 @@ class FeaturedProducts extends React.Component {
               .slice(activeSlidePage, activeSlidePage + 1)
               .map(item => ( 
                 
+                /*
                 <CSSTransition
                     key={item.id}
                     timeout={3000}
                     classNames='fade'
                     appear={true}
                     exit={false}
-                  >
+                  >  */
 
 
                 <div key ={item.id} className={styles.shopNow}>
@@ -158,7 +159,7 @@ class FeaturedProducts extends React.Component {
 
                 </div>
 
-                </CSSTransition>
+               /* </CSSTransition>  */
 
 
 
