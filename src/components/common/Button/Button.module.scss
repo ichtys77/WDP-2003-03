@@ -72,6 +72,25 @@
   }
 }
 
+.arrow {
+  background-color: $featured-panel-bg;
+  color: $featured-panel-color;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 6px 30px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  @include hover-animation;
+
+  &:hover {
+    color: $featured-panel-color;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}
+
 .cta {
   @extend .main;
   background-color: green;
