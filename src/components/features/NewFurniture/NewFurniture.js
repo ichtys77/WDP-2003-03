@@ -156,6 +156,15 @@ class NewFurniture extends React.Component {
                     classNames='fade'
                     appear={true}
                     exit={false}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                      exitActiveDone: styles.fadeExitActiveDone,
+                    }}
                   >
                     <div key={item.id} className='col-12 col-lg-3'>
                       <ProductBox
