@@ -60,37 +60,24 @@
       transform: translate(-50%, 50%);
     }
 
-    .arrow {
-      width: 100%;
-      position: absolute;
-      bottom:0;
-      left: 0;
-      background-color: $featured-panel-bg;
-      text-align: center;
-      .arrowLeft {
-        display:inline-block;
-        width: 50%;
-        padding:5px;
-      }
-      .arrowRight {
-        display:inline-block;
-        width: 50%;
-        padding:5px;
-      }
-      .arrowLeft,.arrowRight{
-        &:hover{
-          background-color: $primary;
-          color: $featured-panel-color;
-        }
-      }
-    }
+  }
+  .arrowWrapper {
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    background-color: $featured-panel-bg;
   }
 
 
   .dots {
 
+    position: absolute;
+    right: 0;
+    top: 0;
+
     ul {
-      margin: 0;
+      margin: 0 1rem 0 0;
       padding: 0 0 0 0;
       list-style: none;
       background-color: $featured-panel-bg;
@@ -117,5 +104,41 @@
     }
   }
 
+  .fadeAppear {
+    opacity: 0;
+  }
+
+  .fadeAppearActive {
+    opacity: 1;
+    transition: opacity 3s;
+  }
+
+  .fadeEnter {
+    opacity: 0;
+  }
+
+  .fadeEnterActive {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+  }
+
+  .fadeEnterActiveDone {
+    opacity: 1;
+    transition: opacity 3s;
+  }
+
+  .fadeExit {
+    opacity: 1;
+  }
+
+  .fadeExitActive {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+  }
+  .fadeExitDone {
+    opacity: 0;
+    transition: opacity 3s;
+  }
+
+
 }
-  
