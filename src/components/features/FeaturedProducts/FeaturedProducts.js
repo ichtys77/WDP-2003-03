@@ -12,20 +12,6 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 class FeaturedProducts extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-  products: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      category: PropTypes.string,
-      oldprice: PropTypes.number,
-      price: PropTypes.number,
-      stars: PropTypes.number,
-      promo: PropTypes.string,
-      hotDeals: PropTypes.bool,
-      promotion: PropTypes.bool,
-      image: PropTypes.string,
-    })
-    ),
     slides: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -36,20 +22,14 @@ class FeaturedProducts extends React.Component {
         imgAlt: PropTypes.string,
         image: PropTypes.string,
       })
-      )
+    )
   }
   
   state = { 
     activeSlideSmall: 0,
     activeSlidePage: 0,
-
-    fade: 0,
   };
-
-  handleSlideSmChange(newSlide) {
-    this.setState({ activeSlideSmall: newSlide });
-  }
-
+ 
   handleSlidePageChange(e, newSlidePage) {
     e.preventDefault();
 
@@ -66,25 +46,60 @@ class FeaturedProducts extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.interval = setInterval(
+      () =>
+        this.handleSlideSmChange(
+          this.state.activeSlideSmall === this.props.hotDeals.length - 1
+            ? 0
+            : this.state.activeSlideSmall + 1
+        ),
+      3000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  handleSlideSmChange(newSlide) {
+    setTimeout(() => this.setState({ activeSlideSmall: newSlide }), 100);
+  }
+
+
   render () {
     
-    const { products, slides } = this.props;
-    const { activeSlideSmall, activeSlidePage, fade } = this.state;
+    const { slides, hotDeals} = this.props;
+    const { activeSlideSmall, activeSlidePage } = this.state;
 
-    const hotDealProducts = products.filter(item => item.hotDeals == true);
+    const hotDealCount = this.props.hotDeals.length;
 
-    const hotDealCount = hotDealProducts.length;
-
-    const slidesCount = slides.length;
-    console.log('slidesCount', slidesCount);
-
+    //const slidesCount = slides.length;
 
     const dotsSlides = [];
     for (let i = 0; i < hotDealCount; i++) {
       dotsSlides.push(
         <li key={i}>
           <a
-          onClick={() => this.handleSlideSmChange(i)}
+          onClick={() => {
+            this.handleSlideSmChange(i);
+            
+            clearInterval(this.interval);
+            
+            this.interval = setInterval(
+              () =>
+                this.handleSlideSmChange(
+                  this.state.activeSlideSmall === this.props.hotDeals.length - 1
+                    ? 0
+                    : this.state.activeSlideSmall + 1
+                ),
+              10000
+            );
+
+            clearInterval(this.interval);
+          
+          }}
+
           className={i === activeSlideSmall && styles.active}>
             page {i}
           </a>
@@ -105,103 +120,105 @@ class FeaturedProducts extends React.Component {
                 </div>
               </div>
               
-              <div className='row'>
+              <TransitionGroup className='row'>
               
-                {hotDealProducts
+                {hotDeals
                 .slice(activeSlideSmall * 1, (activeSlideSmall + 1) * 1)
                 .map(item => (
-                
-                <div key ={item.id} className='col-12'>
-                  <FeaturedProductsBox  {...item}/>
-                  </div>
-                ))}
-              </div>
-              
-            </div>
 
-            <div className='col-8 col-md-8'>
-
-              
-              <div className='row'>
-
-              {/*<div className={styles.shopNow}>  
-
-              <div className='col-12'>*/}
-
-              {slides
-              .slice(activeSlidePage, activeSlidePage + 1)
-              .map(item => ( 
-                
-                /*
-                <CSSTransition
+                  <CSSTransition
                     key={item.id}
                     timeout={3000}
                     classNames='fade'
                     appear={true}
                     exit={false}
-                  >  */
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                      exitActiveDone: styles.fadeExitActiveDone,
+                    }}
+                  > 
 
-
-                <div key ={item.id} className={styles.shopNow}>
-
-                <img src={item.image} alt={item.imgAlt} />
-
-                <div className={styles.shadow}>
-                  <div className={styles.title}>{item.title} <span>{item.titleBold}</span></div>
-                  <div className={styles.subtitle}>{item.subtitle}</div>
-                </div>
                 
-                <div className={styles.buttons}>
-                  <Button variant="white">
-                    {item.btnName}
-                  </Button>
+                <div key ={item.id} className='col-12'>
+                  <FeaturedProductsBox  {...item}/>
                 </div>
 
-                </div>
-
-               /* </CSSTransition>  */
+                </CSSTransition>
 
 
-
-              ))}
-
-             {/* </div>
-
-
-               </div> */}
-
-
-              </div> 
-
-
-                {/* BUTTONS */}
-
-                <div className={styles.arrowWrapper}>
-                  <Button variant="arrow"
-                  onClick={e => {
-                    e.preventDefault();
-                    this.handleSlidePageChange(e, activeSlidePage - 1)}}
-                  >
-                    <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-                  </Button>
-                  <Button variant="arrow"
-                  onClick={e => {
-                    e.preventDefault();
-                    this.handleSlidePageChange(e, activeSlidePage + 1)}}
-                    >
-                    <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-                  </Button>
-                </div>
-
-
+                ))}
+              </TransitionGroup>
+              
             </div>
 
+            <div className='col-8 col-md-8'>
+
+              <TransitionGroup className='row'>
+
+                {slides
+                  .slice(activeSlidePage, activeSlidePage + 1)
+                  .map(item => ( 
+                    
+                    
+                    <CSSTransition
+                        key={item.id}
+                        timeout={3000}
+                        classNames='fade'
+                        appear={true}
+                        exit={false}
+                        classNames={{
+                          appear: styles.fadeAppear,
+                          appearActive: styles.fadeAppearActive,
+                          enter: styles.fadeEnter,
+                          enterActive: styles.fadeEnterActive,
+                          exit: styles.fadeExit,
+                          exitActive: styles.fadeExitActive,
+                          exitActiveDone: styles.fadeExitActiveDone,
+                        }}
+                      > 
+
+                      <div key ={item.id} className={styles.shopNow}>
+
+                        <img src={item.image} alt={item.imgAlt} />
+
+                        <div className={styles.shadow}>
+                          <div className={styles.title}>{item.title} <span>{item.titleBold}</span></div>
+                          <div className={styles.subtitle}>{item.subtitle}</div>
+                        </div>
+                        
+                        <div className={styles.buttons}>
+                          <Button variant="white">
+                            {item.btnName}
+                          </Button>
+                        </div>
+                    </div>
+                  </CSSTransition>
+                ))}
+              </TransitionGroup> 
 
 
-
-
-
-
+              <div className={styles.arrowWrapper}>
+                <Button variant="arrow"
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleSlidePageChange(e, activeSlidePage - 1)}}
+                >
+                  <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+                </Button>
+                <Button variant="arrow"
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleSlidePageChange(e, activeSlidePage + 1)}}
+                  >
+                  <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
