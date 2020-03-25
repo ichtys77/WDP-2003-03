@@ -8,7 +8,7 @@ const Brands = children => (
     <div className='container'>
       <div className={`row align-items-center ${styles.row}`}>
         <div className='col-1 text-center'>
-          <button>Prev</button>
+          <button>&#x3c;</button>
         </div>
         <div className='col-10'>
           <div className='row'>
@@ -21,7 +21,7 @@ const Brands = children => (
           </div>
         </div>
         <div className='col-1'>
-          <button>Next</button>
+          <button>&#x3e;</button>
         </div>
       </div>
     </div>
