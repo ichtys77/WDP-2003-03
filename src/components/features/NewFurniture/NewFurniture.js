@@ -68,11 +68,21 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products, feedback } = this.props;
+    const { categories, products, viewport, feedback } = this.props;
     const { activeCategory, activePage, activePageFeedback } = this.state;
 
+    let itemsPerPage;
+
+    if (viewport.mode === 'desktop') {
+      itemsPerPage = 8;
+    } else if (viewport.mode === 'tablet') {
+      itemsPerPage = 4;
+    } else {
+      itemsPerPage = 2;
+    }
+
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
     const feedbackCount = Math.ceil(feedback.length);
 
     const dots = [];
@@ -138,7 +148,7 @@ class NewFurniture extends React.Component {
           >
             <TransitionGroup className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
                 .map(item => (
                   <CSSTransition
                     key={item.id}
@@ -210,6 +220,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  viewport: PropTypes.object,
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
