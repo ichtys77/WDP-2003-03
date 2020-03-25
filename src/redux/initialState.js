@@ -1135,7 +1135,7 @@ const initialState = {
       oldPrice: 250,
       stars: 2,
       rating: 0,
-      hotDeals: false,
+      hotDeals: true,
       promo: 'sale',
       newFurniture: true,
       favorite: false,
@@ -1316,7 +1316,7 @@ const initialState = {
       oldPrice: 199,
       stars: 2,
       rating: 0,
-      hotDeals: false,
+      hotDeals: true,
       promo: 'sale',
       newFurniture: true,
       favorite: false,
@@ -1394,8 +1394,9 @@ const initialState = {
     },
   ],
 
-  featuredSection: [
+  slides: [
     {
+      id: 1,
       title: 'INDOOR',
       titleBold: 'FURNITURE',
       subtitle: 'SAVE UP TO 50% OF ALL FURNITURE',
@@ -1403,6 +1404,36 @@ const initialState = {
       imgAlt: 'discount',
       image:
         'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+      id: 2,
+      title: '',
+      titleBold: 'Special OFFER',
+      subtitle: 'SAVE UP TO 20% for our interior designer services',
+      btnName: 'SEE MORE',
+      imgAlt: 'services',
+      image:
+        'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+      id: 3,
+      title: 'SHOW US',
+      titleBold: 'YOUR IDEAS',
+      subtitle: 'Watch our clients houses',
+      btnName: 'SEE MORE',
+      imgAlt: 'ideas',
+      image:
+        'https://images.pexels.com/photos/2121120/pexels-photo-2121120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+      id: 4,
+      title: 'Your',
+      titleBold: 'NEW BEDROOM',
+      subtitle: 'Choose from most popular 15 sets',
+      btnName: 'INSPIRATIONS',
+      imgAlt: 'inspirations',
+      image:
+        'https://images.pexels.com/photos/90317/pexels-photo-90317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
   ],
 };
