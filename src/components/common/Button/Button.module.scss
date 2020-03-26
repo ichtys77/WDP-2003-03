@@ -50,6 +50,47 @@
 
 }
 
+.white {
+  background-color: $button-color;
+  color: $button-main-bg;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 15px 30px;
+  @include hover-animation;
+  border-radius: 3px;
+
+  &:hover {
+    color: $button-color;
+    background-color: $primary;
+    text-decoration: none;
+  }
+
+  a {
+    z-index: 1;
+    text-decoration: none;
+  }
+}
+
+.arrow {
+  background-color: $featured-panel-bg;
+  color: $featured-panel-color;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 6px 30px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  @include hover-animation;
+
+  &:hover {
+    color: $featured-panel-color;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}
+
 .cta {
   @extend .main;
   background-color: green;
