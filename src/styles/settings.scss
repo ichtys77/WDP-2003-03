@@ -12,7 +12,13 @@ $text-color: #2a2a2a;
 
 $form-border-color: #292929;
 
-$transition-time: 0.25s;
+@mixin hover-animation($all: false, $color-time: 0.25s, $bg-color-time: 0.25s) {
+  @if ($all) {
+    transition: all 0.25s;
+  } @else {
+    transition: color $color-time, background-color $bg-color-time;
+  }
+}
 
 /* DON'T USE THIS VARIABLES */
 $dark-gray: #2a2a2a;
@@ -26,7 +32,7 @@ $fourth-light-gray: #e2e2e2;
 $fifth-light-gray: rgb(216, 216, 216);
 $sixth-light-gray: rgb(224, 227, 237);
 $seventh-light-gray: rgb(169, 169, 169);
-$eight-light-gray: #6a6a6a; 
+$eight-light-gray: #6a6a6a;
 $ninth-light-gray: #e8edf7;
 $tenth-light-gray: #fbf3f7;
 $white: #ffffff;
@@ -95,7 +101,8 @@ $p-image-chair: '/images/chair.jpg';
 $p-image-bed: '/images/bed.jpg';
 
 
-
-
+/* FEATURED PRODUCT BOX */
+$featured-panel-bg: $third-dark-gray;
+$featured-panel-color: $white;
 
 
