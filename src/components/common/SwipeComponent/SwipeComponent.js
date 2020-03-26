@@ -27,33 +27,6 @@ const SwipeComponent = ({ children, swipeAction, activeItem, itemsCount }) => {
   );
 };
 
-/* class SwipeComponent extends React.Component {
-
-  onSwipedRight(activeItem, swipeAction) {
-    if (activeItem - 1 >= 0) {
-      swipeAction(activeItem - 1);
-    }
-  };
-
-  onSwipedLeft(activeItem, itemsCount, swipeAction) {
-    if (activeItem + 1 < itemsCount) {
-      swipeAction(activeItem + 1);
-    }
-  };
-
-  render() {
-
-    return <Swipe
-    nodeName='div'
-    detectTouch='true'
-    onSwipedLeft= {this.onSwipedLeft}
-    onSwipedRight= {this.onSwipedRight}
-  >
-    {this.props.children}
-  </Swipe>
-  }
-} */
-
 SwipeComponent.propTypes = {
   children: PropTypes.node,
   swipeAction: PropTypes.func,

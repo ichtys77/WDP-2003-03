@@ -62,8 +62,18 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, viewport } = this.props;
     const { activeCategory, activePage } = this.state;
+
+    let itemsPerPage;
+
+    if (viewport.mode === 'desktop') {
+      itemsPerPage = 8;
+    } else if (viewport.mode === 'tablet') {
+      itemsPerPage = 4;
+    } else {
+      itemsPerPage = 2;
+    }
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -71,7 +81,7 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
@@ -116,7 +126,7 @@ class NewFurniture extends React.Component {
           >
             <TransitionGroup className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
                 .map(item => (
                   <CSSTransition
                     key={item.id}
@@ -124,6 +134,15 @@ class NewFurniture extends React.Component {
                     classNames='fade'
                     appear={true}
                     exit={false}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                      exitActiveDone: styles.fadeExitActiveDone,
+                    }}
                   >
                     <div key={item.id} className='col-12 col-lg-3'>
                       <ProductBox
@@ -168,6 +187,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  viewport: PropTypes.object,
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
