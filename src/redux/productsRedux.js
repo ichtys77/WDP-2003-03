@@ -8,6 +8,8 @@ export const getNew = ({ products }) =>
 export const getHotDeal = ({ products }) =>
   products.filter(item => item.hotDeals === true);
 
+export const countHotDeal = ({ products }) => getHotDeal({ products }).length;
+
 // action name creator
 const reducerName = 'products';
 const createActionName = name => `app/${reducerName}/${name}`;
