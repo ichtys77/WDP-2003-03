@@ -1,3 +1,10 @@
+import {
+  faStar,
+  faShoppingBasket,
+  faUserTie,
+  faWrench,
+} from '@fortawesome/free-solid-svg-icons';
+
 const initialState = {
   viewport: {
     mode: '',
@@ -1349,10 +1356,10 @@ const initialState = {
   },
 
   tabs: [
-    { id: 'featured', name: 'Featured', icon: 'faHeart' },
-    { id: 'topselller', name: 'Top seller' },
-    { id: 'saleoff', name: 'Sale off' },
-    { id: 'toprated', name: 'Top rated' },
+    { id: 'featured', name: 'Featured', icon: faWrench },
+    { id: 'topselller', name: 'Top seller', icon: faUserTie },
+    { id: 'saleoff', name: 'Sale off', icon: faShoppingBasket },
+    { id: 'toprated', name: 'Top rated', icon: faStar },
   ],
 
   feedback: [

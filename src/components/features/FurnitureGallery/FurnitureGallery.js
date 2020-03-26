@@ -8,12 +8,6 @@ import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPric
 import initialState from '../../../redux/initialState';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHeart,
-  faExchangeAlt,
-  faShoppingBasket,
-  faEye,
-} from '@fortawesome/free-solid-svg-icons';
 
 class FurnitureGallery extends React.Component {
   render() {
