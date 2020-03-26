@@ -6,6 +6,8 @@ import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
 import ClientFeedback from '../../layout/ClientFeedback/ClientFeedback';
 
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -15,7 +17,10 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+      fade: this.state.fade + 1,
+    });
   }
 
   handlePageChangeFeedback(newPage) {
@@ -23,7 +28,10 @@ class NewFurniture extends React.Component {
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({
+      activeCategory: newCategory,
+      fade: this.state.fade + 1,
+    });
   }
 
   compareProduct = (image, id) => {
@@ -60,17 +68,27 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products, feedback } = this.props;
+    const { categories, products, viewport, feedback } = this.props;
     const { activeCategory, activePage, activePageFeedback } = this.state;
 
+    let itemsPerPage;
+
+    if (viewport.mode === 'desktop') {
+      itemsPerPage = 8;
+    } else if (viewport.mode === 'tablet') {
+      itemsPerPage = 4;
+    } else {
+      itemsPerPage = 2;
+    }
+
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
     const feedbackCount = Math.ceil(feedback.length);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
@@ -128,19 +146,36 @@ class NewFurniture extends React.Component {
             activeItem={this.state.activePage}
             swipeAction={this.handlePageChange.bind(this)}
           >
-            <div className='row'>
+            <TransitionGroup className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
                 .map(item => (
-                  <div key={item.id} className='col-12 col-lg-3'>
-                    <ProductBox
-                      {...item}
-                      changeFav={this.props.addFav}
-                      addToCompare={this.handleAddCompare}
-                    />
-                  </div>
+                  <CSSTransition
+                    key={item.id}
+                    timeout={3000}
+                    classNames='fade'
+                    appear={true}
+                    exit={false}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                      exitActiveDone: styles.fadeExitActiveDone,
+                    }}
+                  >
+                    <div key={item.id} className='col-12 col-lg-3'>
+                      <ProductBox
+                        {...item}
+                        changeFav={this.props.addFav}
+                        addToCompare={this.handleAddCompare}
+                      />
+                    </div>
+                  </CSSTransition>
                 ))}
-            </div>
+            </TransitionGroup>
           </SwipeComponent>
 
           <div className={styles.panelBar}>
@@ -194,6 +229,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  viewport: PropTypes.object,
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,

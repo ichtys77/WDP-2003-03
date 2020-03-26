@@ -48,7 +48,8 @@
             text-decoration: none;
             font-size: 18px;
             display: block;
-            transition: $transition-time;
+            @include hover-animation;
+            cursor: pointer;
 
             &.active,
             &:hover {
@@ -81,6 +82,7 @@
         li {
           display: inline-block;
           margin-left: 0.5rem;
+          @include hover-animation;
 
           a {
             display: block;
@@ -89,7 +91,6 @@
             border-radius: 6px;
             background-color: $nf-dots-link-bg;
             font-size: 0;
-            transition: $transition-time;
 
             &.active,
             &:hover {
@@ -100,4 +101,41 @@
       }
     }
   }
+
 }
+
+  .fadeAppear {
+    opacity: 0;
+  }
+
+  .fadeAppearActive {
+    opacity: 1;
+    transition: opacity 3s;
+  }
+
+  .fadeEnter {
+    opacity: 0;
+  }
+
+  .fadeEnterActive {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+  }
+
+  .fadeEnterActiveDone {
+    opacity: 1;
+    transition: opacity 3s;
+  }
+
+  .fadeExit {
+    opacity: 1;
+  }
+
+  .fadeExitActive {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+  }
+  .fadeExitDone {
+    opacity: 0;
+    transition: opacity 3s;
+  }
