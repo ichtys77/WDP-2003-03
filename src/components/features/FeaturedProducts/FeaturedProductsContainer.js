@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 
 import FeaturedProducts from './FeaturedProducts';
 
-import { getAll, getHotDeal } from '../../../redux/productsRedux.js';
-import { getAllSlides } from '../../../redux/slidesRedux.js';
+import { getHotDeal, countHotDeal } from '../../../redux/productsRedux.js';
+import { getAllSlides, getCountSlides } from '../../../redux/slidesRedux.js';
 
 const mapStateToProps = state => ({
-  products: getAll(state),
   slides: getAllSlides(state),
   hotDeals: getHotDeal(state),
+  countHotDeal: countHotDeal(state),
+  getCountSlides: getCountSlides(state),
 });
 
 /*
