@@ -88,7 +88,7 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active}
@@ -156,6 +156,15 @@ class NewFurniture extends React.Component {
                     classNames='fade'
                     appear={true}
                     exit={false}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                      exitActiveDone: styles.fadeExitActiveDone,
+                    }}
                   >
                     <div key={item.id} className='col-12 col-lg-3'>
                       <ProductBox
