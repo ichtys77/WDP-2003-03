@@ -21,9 +21,9 @@
             font-size: 14px;
             line-height: 30px;
             color: $f-menuWrapper-link-color;
+            @include hover-animation;
 
             &:hover {
-              transition: $transition-time;
               color: $f-menuWrapper-link-hover;
             }
           }
@@ -71,9 +71,9 @@
           a {
             color: $f-socialmedia-link-color;
             text-decoration: none;
+            @include hover-animation;
 
             &:hover {
-              transition: $transition-time;
               color: $primary;
             }
           }
