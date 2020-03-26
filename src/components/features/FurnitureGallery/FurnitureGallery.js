@@ -7,6 +7,14 @@ import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGallery
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 import initialState from '../../../redux/initialState';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHeart,
+  faExchangeAlt,
+  faShoppingBasket,
+  faEye,
+} from '@fortawesome/free-solid-svg-icons';
+
 class FurnitureGallery extends React.Component {
   render() {
     return (
@@ -19,7 +27,12 @@ class FurnitureGallery extends React.Component {
                 <ul>
                   {initialState.tabs.map(tab => (
                     <li key={tab.id}>
-                      <a href='#'>{tab.name}</a>
+                      <a href='#' className={'d-none d-md-block'}>
+                        {tab.name}
+                      </a>
+                      <a href='#' className={'d-md-none'}>
+                        <FontAwesomeIcon icon={tab.icon}></FontAwesomeIcon>
+                      </a>
                     </li>
                   ))}
                 </ul>

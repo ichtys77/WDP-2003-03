@@ -1349,7 +1349,7 @@ const initialState = {
   },
 
   tabs: [
-    { id: 'featured', name: 'Featured' },
+    { id: 'featured', name: 'Featured', icon: 'faHeart' },
     { id: 'topselller', name: 'Top seller' },
     { id: 'saleoff', name: 'Sale off' },
     { id: 'toprated', name: 'Top rated' },
