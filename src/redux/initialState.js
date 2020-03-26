@@ -100,6 +100,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 7',
       category: 'bed',
       price: 30,
+      oldPrice: 60,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -228,6 +229,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 16',
       category: 'bed',
       price: 30,
+      oldPrice: 35,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -275,7 +277,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/763148/pexels-photo-763148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -289,7 +291,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3144580/pexels-photo-3144580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -304,7 +306,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/2775320/pexels-photo-2775320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -318,7 +320,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3753435/pexels-photo-3753435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -332,7 +334,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/172872/pexels-photo-172872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -347,7 +349,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3201758/pexels-photo-3201758.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -361,7 +363,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/2082090/pexels-photo-2082090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -375,7 +377,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3229076/pexels-photo-3229076.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -389,7 +391,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/3316918/pexels-photo-3316918.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -403,7 +405,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      tabs: 'topselller',
+      tabs: 'topseller',
       compare: false,
       image:
         'https://images.pexels.com/photos/271696/pexels-photo-271696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -413,6 +415,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 29',
       category: 'chair',
       price: 30,
+      oldPrice: 45,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -455,6 +458,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 32',
       category: 'chair',
       price: 30,
+      oldPrice: 45,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -469,6 +473,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 33',
       category: 'chair',
       price: 30,
+      oldPrice: 45,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -511,6 +516,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 36',
       category: 'chair',
       price: 30,
+      oldPrice: 35,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -539,6 +545,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 38',
       category: 'chair',
       price: 30,
+      oldPrice: 35,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -591,6 +598,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 42',
       category: 'chair',
       price: 30,
+      oldPrice: 45,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -656,6 +664,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 47',
       category: 'sofa',
       price: 30,
+      oldPrice: 33,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -786,6 +795,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 57',
       category: 'sofa',
       price: 30,
+      oldPrice: 45,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -812,6 +822,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 59',
       category: 'sofa',
       price: 30,
+      oldPrice: 40,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -838,6 +849,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 61',
       category: 'sofa',
       price: 30,
+      oldPrice: 45,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -903,6 +915,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 66',
       category: 'table',
       price: 30,
+      oldPrice: 40,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -1203,10 +1216,30 @@ const initialState = {
   },
 
   tabs: [
-    { id: 'featured', name: 'Featured' },
-    { id: 'topselller', name: 'Top seller' },
-    { id: 'saleoff', name: 'Sale off' },
-    { id: 'toprated', name: 'Top rated' },
+    {
+      id: 'featured',
+      name: 'Featured',
+      image:
+        'https://images.pexels.com/photos/2343470/pexels-photo-2343470.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+      id: 'topseller',
+      name: 'Top seller',
+      image:
+        'https://images.pexels.com/photos/271647/pexels-photo-271647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+      id: 'saleoff',
+      name: 'Sale off',
+      image:
+        'https://images.pexels.com/photos/271696/pexels-photo-271696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+      id: 'toprated',
+      name: 'Top rated',
+      image:
+        'https://images.pexels.com/photos/2291599/pexels-photo-2291599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
   ],
 
   feedback: [
