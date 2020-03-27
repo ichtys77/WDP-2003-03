@@ -5,6 +5,9 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
+export const getHotDeal = ({ products }) =>
+  products.filter(item => item.hotDeals === true);
+
 // action name creator
 const reducerName = 'products';
 const createActionName = name => `app/${reducerName}/${name}`;
@@ -12,10 +15,12 @@ const createActionName = name => `app/${reducerName}/${name}`;
 // action types
 export const CHANGE_COMPARE = createActionName('CHANGE_COMPARE');
 const ADD_FAV = createActionName('ADD_FAV');
+const ADD_RATING = createActionName('ADD_RATING');
 
 // action creators
 export const changeCompare = payload => ({ payload, type: CHANGE_COMPARE });
 export const addFavorite = payload => ({ payload, type: ADD_FAV });
+export const addRating = payload => ({ payload: { ...payload }, type: ADD_RATING });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -38,6 +43,17 @@ export default function reducer(statePart = [], action = {}) {
       });
       return [...statePart, products];
     }
+
+    case ADD_RATING: {
+      let products = statePart.map(item => {
+        if (item.id === action.payload.productId) {
+          item.rating = action.payload.number;
+        }
+        return item;
+      });
+      return [...statePart, products];
+    }
+
     default:
       return statePart;
   }

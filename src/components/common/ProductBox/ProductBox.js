@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import BoxStars from '../../features/BoxStars/BoxStarsContainer';
 
 const ProductBox = ({
   id,
@@ -17,6 +18,7 @@ const ProductBox = ({
   price,
   promo,
   stars,
+  rating,
   image,
   favorite,
   compare,
@@ -48,33 +50,24 @@ const ProductBox = ({
           </Button>
         </div>
       </div>
+
       <div className={styles.content}>
         <h5>{name}</h5>
-        <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
+        <BoxStars id={id} stars={stars} rating={rating} />
       </div>
 
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
           <Button
-            variant='outline'
+            variant='outlineColor'
             className={favorite ? 'active' : ''}
             onClick={e => handleChangeFav(e, id)}
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button
-            variant='outline'
+            variant='outlineColor'
             className={compare ? 'active' : ''}
             onClick={e => handleCompare(e, image, id)}
           >
@@ -102,6 +95,7 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  rating: PropTypes.number,
   favorite: PropTypes.bool,
   id: PropTypes.string,
   changeFav: PropTypes.func,

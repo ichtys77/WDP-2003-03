@@ -45,6 +45,7 @@
     ]
   },
   "dependencies": {
+    "@babel/helper-compilation-targets": "^7.8.7",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
@@ -59,11 +60,13 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
+    "react-responsive": "^8.0.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.2",
+    "react-scripts": "^3.4.0",
     "react-swipe-component": "^3.0.0",
     "react-swipeable": "^5.5.1",
     "react-test-renderer": "^16.9.0",
+    "react-transition-group": "^4.3.0",
     "redux": "^4.0.4"
   },
   "devDependencies": {
