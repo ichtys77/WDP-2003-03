@@ -11,7 +11,9 @@ describe('Component FeaturedProductsBox', () => {
   it('should render image (with proper src && alt) without crashing', () => {
     const expectedSrc = 'image';
     const expectedAlt = 'image alt';
-    const component = shallow(<FeaturedProductsBox image={expectedSrc} name={expectedAlt} />);
+    const component = shallow(
+      <FeaturedProductsBox image={expectedSrc} name={expectedAlt} />
+    );
     expect(component.find('img').prop('src')).toEqual(expectedSrc);
     expect(component.find('img').prop('alt')).toEqual(expectedAlt);
   });
