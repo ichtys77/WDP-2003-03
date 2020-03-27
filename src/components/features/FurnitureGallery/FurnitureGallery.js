@@ -28,7 +28,7 @@ class FurnitureGallery extends React.Component {
   }
 
   handelGalleryFurther(event) {
-    const newFurther = this.state.activePage < 0 ? 0 : this.state.activePage - 1;
+    const newFurther = this.state.activePage < 0 ? 0 : this.state.activePage - 6;
     this.setState({ activePage: newFurther });
     event && event.preventDefault();
   }
@@ -37,7 +37,7 @@ class FurnitureGallery extends React.Component {
     const newBack =
       this.state.activePage >= categoryProducts.length
         ? categoryProducts.length
-        : this.state.activePage + 1;
+        : this.state.activePage + 6;
     this.setState({ activePage: newBack });
     event && event.preventDefault();
   }
@@ -81,10 +81,9 @@ class FurnitureGallery extends React.Component {
                       <Link
                         to='/'
                         className={'d-md-none'}
-                        icon={tab.icon}
                         onClick={event => this.handleCategoryChange(event, tab.id)}
                       >
-                        <FontAwesomeIcon></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={tab.icon}></FontAwesomeIcon>
                       </Link>
                     </li>
                   ))}
