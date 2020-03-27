@@ -11,7 +11,7 @@ class PromoProduct extends React.Component {
 
   render() {
     return (
-      <div className={'col-12 col-md-6 ' + styles.promotion}>
+      <div className={'col-12 col-md-6 d-none d-md-block ' + styles.promotion}>
         <div className={styles.root}>
           <div className={styles.promo}>
             <img

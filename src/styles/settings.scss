@@ -12,9 +12,9 @@ $text-color: #2a2a2a;
 
 $form-border-color: #292929;
 
-@mixin hover-animation($all: false, $color-time: 0.25s, $bg-color-time: 0.25s) {
+@mixin hover-animation($all: false, $color-time: 0.125s, $bg-color-time: 0.125s) {
   @if ($all) {
-    transition: all 0.25s;
+    transition: all 0.125s;
   } @else {
     transition: color $color-time, background-color $bg-color-time;
   }

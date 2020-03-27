@@ -22,35 +22,38 @@ class FeaturedProducts extends React.Component {
         imgAlt: PropTypes.string,
         image: PropTypes.string,
       })
-    )
-  }
-  
-  state = { 
+    ),
+    hotDeals: PropTypes.array,
+    countHotDeal: PropTypes.number,
+    getCountSlides: PropTypes.number,
+  };
+
+  state = {
     activeSlideSmall: 0,
     activeSlidePage: 0,
+
+    rating: 5,
   };
- 
+
   handleSlidePageChange(e, newSlidePage) {
     e.preventDefault();
 
     if (newSlidePage < 0) {
       this.setState({ activeSlidePage: 3 });
-    } else if (newSlidePage > 3) {
+    } else if (newSlidePage > this.props.getCountSlides) {
       this.setState({ activeSlidePage: 0 });
     } else {
-      this.setState({ 
+      this.setState({
         activeSlidePage: newSlidePage,
-        fade: this.state.fade + 1,
-       });
-    } 
-
+      });
+    }
   }
 
   componentDidMount() {
     this.interval = setInterval(
       () =>
         this.handleSlideSmChange(
-          this.state.activeSlideSmall === this.props.hotDeals.length - 1
+          this.state.activeSlideSmall === this.props.countHotDeal - 1
             ? 0
             : this.state.activeSlideSmall + 1
         ),
@@ -66,47 +69,40 @@ class FeaturedProducts extends React.Component {
     setTimeout(() => this.setState({ activeSlideSmall: newSlide }), 100);
   }
 
-
-  render () {
-    
-    const { slides, hotDeals} = this.props;
+  render() {
+    const { slides, hotDeals, countHotDeal } = this.props;
     const { activeSlideSmall, activeSlidePage } = this.state;
 
-    const hotDealCount = this.props.hotDeals.length;
-
-    //const slidesCount = slides.length;
-
     const dotsSlides = [];
-    for (let i = 0; i < hotDealCount; i++) {
+    for (let i = 0; i < countHotDeal; i++) {
       dotsSlides.push(
         <li key={i}>
           <a
-          onClick={() => {
-            this.handleSlideSmChange(i);
-            
-            clearInterval(this.interval);
-            
-            this.interval = setInterval(
-              () =>
-                this.handleSlideSmChange(
-                  this.state.activeSlideSmall === this.props.hotDeals.length - 1
-                    ? 0
-                    : this.state.activeSlideSmall + 1
-                ),
-              10000
-            );
+            onClick={() => {
+              this.handleSlideSmChange(i);
 
-            clearInterval(this.interval);
-          
-          }}
+              clearInterval(this.interval);
 
-          className={i === activeSlideSmall && styles.active}>
+              this.interval = setInterval(
+                () =>
+                  this.handleSlideSmChange(
+                    this.state.activeSlideSmall === countHotDeal - 1
+                      ? 0
+                      : this.state.activeSlideSmall + 1
+                  ),
+                10000
+              );
+
+              clearInterval(this.interval);
+            }}
+            className={i === activeSlideSmall ? styles.active : ''}
+          >
             page {i}
           </a>
         </li>
       );
     }
-    
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -119,102 +115,91 @@ class FeaturedProducts extends React.Component {
                   <ul>{dotsSlides}</ul>
                 </div>
               </div>
-              
+
               <TransitionGroup className='row'>
-              
-                {hotDeals
-                .slice(activeSlideSmall * 1, (activeSlideSmall + 1) * 1)
-                .map(item => (
-
-                  <CSSTransition
-                    key={item.id}
-                    timeout={3000}
-                    classNames='fade'
-                    appear={true}
-                    exit={false}
-                    classNames={{
-                      appear: styles.fadeAppear,
-                      appearActive: styles.fadeAppearActive,
-                      enter: styles.fadeEnter,
-                      enterActive: styles.fadeEnterActive,
-                      exit: styles.fadeExit,
-                      exitActive: styles.fadeExitActive,
-                      exitActiveDone: styles.fadeExitActiveDone,
-                    }}
-                  > 
-
-                
-                <div key ={item.id} className='col-12'>
-                  <FeaturedProductsBox  {...item}/>
-                </div>
-
-                </CSSTransition>
-
-
-                ))}
+                {(hotDeals || [])
+                  .slice(activeSlideSmall * 1, (activeSlideSmall + 1) * 1)
+                  .map(item => (
+                    <CSSTransition
+                      key={item.id}
+                      timeout={3000}
+                      classNames='fade'
+                      appear={true}
+                      exit={false}
+                      classNames={{
+                        appear: styles.fadeAppear,
+                        appearActive: styles.fadeAppearActive,
+                        enter: styles.fadeEnter,
+                        enterActive: styles.fadeEnterActive,
+                        exit: styles.fadeExit,
+                        exitActive: styles.fadeExitActive,
+                        exitActiveDone: styles.fadeExitActiveDone,
+                      }}
+                    >
+                      <div key={item.id} className='col-12'>
+                        <FeaturedProductsBox {...item} />
+                      </div>
+                    </CSSTransition>
+                  ))}
               </TransitionGroup>
-              
             </div>
 
             <div className='col-8 col-md-8'>
-
               <TransitionGroup className='row'>
-
-                {slides
+                {(slides || [])
                   .slice(activeSlidePage, activeSlidePage + 1)
-                  .map(item => ( 
-                    
-                    
+                  .map(item => (
                     <CSSTransition
-                        key={item.id}
-                        timeout={3000}
-                        classNames='fade'
-                        appear={true}
-                        exit={false}
-                        classNames={{
-                          appear: styles.fadeAppear,
-                          appearActive: styles.fadeAppearActive,
-                          enter: styles.fadeEnter,
-                          enterActive: styles.fadeEnterActive,
-                          exit: styles.fadeExit,
-                          exitActive: styles.fadeExitActive,
-                          exitActiveDone: styles.fadeExitActiveDone,
-                        }}
-                      > 
-
-                      <div key ={item.id} className={styles.shopNow}>
-
+                      key={item.id}
+                      timeout={3000}
+                      classNames='fade'
+                      appear={true}
+                      exit={false}
+                      classNames={{
+                        appear: styles.fadeAppear,
+                        appearActive: styles.fadeAppearActive,
+                        enter: styles.fadeEnter,
+                        enterActive: styles.fadeEnterActive,
+                        exit: styles.fadeExit,
+                        exitActive: styles.fadeExitActive,
+                        exitActiveDone: styles.fadeExitActiveDone,
+                      }}
+                    >
+                      <div key={item.id} className={styles.shopNow}>
                         <img src={item.image} alt={item.imgAlt} />
 
                         <div className={styles.shadow}>
-                          <div className={styles.title}>{item.title} <span>{item.titleBold}</span></div>
+                          <div className={styles.title}>
+                            {item.title} <span>{item.titleBold}</span>
+                          </div>
                           <div className={styles.subtitle}>{item.subtitle}</div>
                         </div>
-                        
-                        <div className={styles.buttons}>
-                          <Button variant="white">
-                            {item.btnName}
-                          </Button>
-                        </div>
-                    </div>
-                  </CSSTransition>
-                ))}
-              </TransitionGroup> 
 
+                        <div className={styles.buttons}>
+                          <Button variant='white'>{item.btnName}</Button>
+                        </div>
+                      </div>
+                    </CSSTransition>
+                  ))}
+              </TransitionGroup>
 
               <div className={styles.arrowWrapper}>
-                <Button variant="arrow"
-                onClick={e => {
-                  e.preventDefault();
-                  this.handleSlidePageChange(e, activeSlidePage - 1)}}
+                <Button
+                  variant='arrow'
+                  onClick={e => {
+                    e.preventDefault();
+                    this.handleSlidePageChange(e, activeSlidePage - 1);
+                  }}
                 >
                   <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
                 </Button>
-                <Button variant="arrow"
-                onClick={e => {
-                  e.preventDefault();
-                  this.handleSlidePageChange(e, activeSlidePage + 1)}}
-                  >
+                <Button
+                  variant='arrow'
+                  onClick={e => {
+                    e.preventDefault();
+                    this.handleSlidePageChange(e, activeSlidePage + 1);
+                  }}
+                >
                   <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
                 </Button>
               </div>

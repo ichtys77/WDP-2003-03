@@ -144,3 +144,11 @@ $border-color: #e0dede;
   width: 550px;
   height: 600px;
 }
+
+@media (max-width: 768px) {
+  .thumbnail {
+    img:nth-child(2){
+      display: none; 
+    }
+  }
+}
