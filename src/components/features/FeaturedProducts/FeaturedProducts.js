@@ -41,6 +41,8 @@ class FeaturedProducts extends React.Component {
   state = {
     activeSlideSmall: 0,
     activeSlidePage: 0,
+
+    rating: 5,
   };
 
   handleSlidePageChange(newSlidePage) {
