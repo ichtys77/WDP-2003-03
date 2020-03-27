@@ -4,14 +4,12 @@ import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import StickyBar from '../../common/StickyBar/StickyBar';
-import ClientFeedback from '../../layout/ClientFeedback/ClientFeedback';
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
-    activePageFeedback: 0,
     activeCategory: 'bed',
     compareList: [],
   };
@@ -21,10 +19,6 @@ class NewFurniture extends React.Component {
       activePage: newPage,
       fade: this.state.fade + 1,
     });
-  }
-
-  handlePageChangeFeedback(newPage) {
-    this.setState({ activePageFeedback: newPage });
   }
 
   handleCategoryChange(newCategory) {
@@ -68,8 +62,8 @@ class NewFurniture extends React.Component {
   };
 
   render() {
-    const { categories, products, viewport, feedback } = this.props;
-    const { activeCategory, activePage, activePageFeedback } = this.state;
+    const { categories, products, viewport } = this.props;
+    const { activeCategory, activePage } = this.state;
 
     let itemsPerPage;
 
@@ -82,8 +76,7 @@ class NewFurniture extends React.Component {
     }
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
-    const feedbackCount = Math.ceil(feedback.length);
+    const pagesCount = Math.ceil(categoryProducts.length / 8);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -91,28 +84,13 @@ class NewFurniture extends React.Component {
         <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage ? styles.active : ''}
+            className={i === activePage && styles.active}
           >
             page {i}
           </a>
         </li>
       );
     }
-
-    const dotsFeedback = [];
-    for (let i = 0; i < feedbackCount; i++) {
-      dotsFeedback.push(
-        <li key={i}>
-          <a
-            onClick={() => this.handlePageChangeFeedback(i)}
-            className={i === activePageFeedback ? styles.active : ''}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
-
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -126,7 +104,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory ? styles.active : ''}
+                        className={item.id === activeCategory && styles.active}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -177,26 +155,6 @@ class NewFurniture extends React.Component {
                 ))}
             </TransitionGroup>
           </SwipeComponent>
-
-          <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col ' + styles.heading}>
-                <h3>Client feedback</h3>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dotsFeedback}</ul>
-              </div>
-            </div>
-          </div>
-          <div className='row'>
-            {feedback
-              .slice(activePageFeedback * 1, (activePageFeedback + 1) * 1)
-              .map(item => (
-                <div key={item.id} className='col-12'>
-                  <ClientFeedback {...item} />
-                </div>
-              ))}
-          </div>
           {this.state.compareList.length ? (
             <StickyBar
               compareList={this.state.compareList}
@@ -225,6 +183,7 @@ NewFurniture.propTypes = {
       category: PropTypes.string,
       price: PropTypes.number,
       stars: PropTypes.number,
+      rating: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
     })
@@ -232,7 +191,7 @@ NewFurniture.propTypes = {
   viewport: PropTypes.object,
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       name: PropTypes.string,
       picture: PropTypes.string,
       description: PropTypes.string,
