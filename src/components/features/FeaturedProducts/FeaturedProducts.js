@@ -77,7 +77,7 @@ class FeaturedProducts extends React.Component {
 
   render() {
     const { slides, hotDeals, countHotDeal, getCountSlides, viewport } = this.props;
-    const { activeSlideSmall, activeSlidePage, device } = this.state;
+    const { activeSlideSmall, activeSlidePage } = this.state;
 
     const dotsSlides = [];
     for (let i = 0; i < countHotDeal; i++) {
@@ -189,7 +189,9 @@ class FeaturedProducts extends React.Component {
 
                           <div
                             className={`${styles.shadow} ${
-                              device ? styles.shadowSm : ''
+                              this.props.viewport.mode === 'mobile'
+                                ? styles.shadowSm
+                                : ''
                             }`}
                           >
                             <div className={styles.title}>
@@ -201,7 +203,9 @@ class FeaturedProducts extends React.Component {
 
                           <div
                             className={`${styles.buttons} ${
-                              device ? styles.buttonsSm : ''
+                              this.props.viewport.mode === 'mobile'
+                                ? styles.buttonsSm
+                                : ''
                             }`}
                           >
                             <Button variant='white'>{item.btnName}</Button>
