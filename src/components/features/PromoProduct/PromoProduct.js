@@ -4,7 +4,7 @@ import styles from './PromoProduct.module.scss';
 import Button from '../../common/Button/Button';
 
 const PromoProduct = ({ products }) => (
-  <div className={'col-12 col-md-6 ' + styles.promotion}>
+  <div className={'col-12 col-md-6 d-none d-md-block ' + styles.promotion}>
     <div className={styles.root}>
       <div className={styles.promo}>
         <img src={products[4].image} alt={products[0].category}></img>
@@ -22,7 +22,19 @@ const PromoProduct = ({ products }) => (
 );
 
 PromoProduct.propTypes = {
-  products: PropTypes.node,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      category: PropTypes.string,
+      price: PropTypes.number,
+      stars: PropTypes.number,
+      promo: PropTypes.string,
+      newFurniture: PropTypes.bool,
+      image: PropTypes.string,
+      oldPrice: PropTypes.number,
+    })
+  ),
 };
 
 export default PromoProduct;

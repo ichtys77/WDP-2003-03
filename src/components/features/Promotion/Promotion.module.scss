@@ -45,7 +45,7 @@
       }      
     }
   }
-  .rightBox {
+  .rightBoxes {
     height: 195px;
     margin-left: 30px;
     width: auto;
@@ -79,4 +79,18 @@ strong {
 }
 .gold {
   color: $primary;
+}
+
+@media(max-width: 768px) {
+  .leftBox {
+    margin-bottom: 30px;
+  }
+  .rightBox {
+    padding: 0;
+
+    .rightBoxes {
+      margin: 0;
+    }
+  }
+
 }

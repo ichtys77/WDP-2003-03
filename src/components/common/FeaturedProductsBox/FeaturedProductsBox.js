@@ -12,14 +12,18 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
 
-
-const FeaturedProductsBox = ({id, name, price, oldPrice, stars, image,favorite,compare}) => {
- 
-  
+const FeaturedProductsBox = ({
+  id,
+  name,
+  price,
+  oldPrice,
+  stars,
+  image,
+  favorite,
+  compare,
+}) => {
   return (
-
     <div className={styles.root}>
-
       <div className={styles.photo}>
         <img src={image} alt={name} />
         <div className={styles.buttons}>
@@ -67,22 +71,13 @@ const FeaturedProductsBox = ({id, name, price, oldPrice, stars, image,favorite,c
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button
-            variant='outline'
-            className={favorite ? 'active' : ''}
-          >
+          <Button variant='outline' className={favorite ? 'active' : ''}>
             <FontAwesomeIcon icon={faEye}>See later</FontAwesomeIcon>
           </Button>
-          <Button
-            variant='outline'
-            className={favorite ? 'active' : ''}
-          >
+          <Button variant='outline' className={favorite ? 'active' : ''}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button
-            variant='outline'
-            className={compare ? 'active' : ''}
-          >
+          <Button variant='outline' className={compare ? 'active' : ''}>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -98,7 +93,6 @@ const FeaturedProductsBox = ({id, name, price, oldPrice, stars, image,favorite,c
         </div>
       </div>
     </div>
-
   );
 };
 

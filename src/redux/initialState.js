@@ -1,3 +1,10 @@
+import {
+  faStar,
+  faShoppingBasket,
+  faUserTie,
+  faWrench,
+} from '@fortawesome/free-solid-svg-icons';
+
 const initialState = {
   viewport: {
     mode: '',
@@ -1399,30 +1406,10 @@ const initialState = {
   },
 
   tabs: [
-    {
-      id: 'featured',
-      name: 'Featured',
-      image:
-        'https://images.pexels.com/photos/2343470/pexels-photo-2343470.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    },
-    {
-      id: 'topseller',
-      name: 'Top seller',
-      image:
-        'https://images.pexels.com/photos/271647/pexels-photo-271647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    },
-    {
-      id: 'saleoff',
-      name: 'Sale off',
-      image:
-        'https://images.pexels.com/photos/271696/pexels-photo-271696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    },
-    {
-      id: 'toprated',
-      name: 'Top rated',
-      image:
-        'https://images.pexels.com/photos/2291599/pexels-photo-2291599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    },
+    { id: 'featured', name: 'Featured', icon: faWrench },
+    { id: 'topseller', name: 'Top seller', icon: faUserTie },
+    { id: 'saleoff', name: 'Sale off', icon: faShoppingBasket },
+    { id: 'toprated', name: 'Top rated', icon: faStar },
   ],
 
   feedback: [

@@ -7,6 +7,8 @@ import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGallery
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 import { Link } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
@@ -71,9 +73,18 @@ class FurnitureGallery extends React.Component {
                     >
                       <Link
                         to='/'
+                        className={'d-none d-md-block'}
                         onClick={event => this.handleCategoryChange(event, tab.id)}
                       >
                         {tab.name}
+                      </Link>
+                      <Link
+                        to='/'
+                        className={'d-md-none'}
+                        icon={tab.icon}
+                        onClick={event => this.handleCategoryChange(event, tab.id)}
+                      >
+                        <FontAwesomeIcon></FontAwesomeIcon>
                       </Link>
                     </li>
                   ))}
