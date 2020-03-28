@@ -45,7 +45,7 @@ class MenuBar extends React.Component {
                 </li>
                 <li>
                   <Link
-                    to='/furniture'
+                    to={`/shop/furniture`}
                     className={pages[1] === activePage ? styles.active : ''}
                     onClick={() => this.handlePageChange(pages[1])}
                   >
@@ -54,7 +54,7 @@ class MenuBar extends React.Component {
                 </li>
                 <li>
                   <Link
-                    to='/chair'
+                    to='/shop/chair'
                     className={pages[2] === activePage ? styles.active : ''}
                     onClick={() => this.handlePageChange(pages[2])}
                   >
@@ -63,7 +63,7 @@ class MenuBar extends React.Component {
                 </li>
                 <li>
                   <Link
-                    to='/table'
+                    to='/shop/table'
                     className={pages[3] === activePage ? styles.active : ''}
                     onClick={() => this.handlePageChange(pages[3])}
                   >
@@ -72,7 +72,7 @@ class MenuBar extends React.Component {
                 </li>
                 <li>
                   <Link
-                    to='/sofa'
+                    to='/shop/sofa'
                     className={pages[4] === activePage ? styles.active : ''}
                     onClick={() => this.handlePageChange(pages[4])}
                   >
@@ -81,7 +81,7 @@ class MenuBar extends React.Component {
                 </li>
                 <li>
                   <Link
-                    to='/bedroom'
+                    to='/shop/bedroom'
                     className={pages[5] === activePage ? styles.active : ''}
                     onClick={() => this.handlePageChange(pages[5])}
                   >
@@ -90,7 +90,7 @@ class MenuBar extends React.Component {
                 </li>
                 <li>
                   <Link
-                    to='/blog'
+                    to='/shop/blog'
                     className={pages[6] === activePage ? styles.active : ''}
                     onClick={() => this.handlePageChange(pages[6])}
                   >

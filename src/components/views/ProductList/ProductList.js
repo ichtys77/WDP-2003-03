@@ -5,16 +5,26 @@ import styles from './ProductList.module.scss';
 class ProductList extends React.Component {
   static propTypes = {
     children: PropTypes.node,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        categoryId: PropTypes.string,
+      }),
+    }),
+  };
+
+  static defaultProps = {
+    match: {
+      params: {},
+    },
   };
 
   render() {
-    const path = window.location.pathname;
-    const pagePath = path.slice(1, path.length).toUpperCase();
+    const { match } = this.props;
 
     return (
       <div className={styles.root}>
         This is ProductList
-        <div className={styles.category}>{pagePath}</div>
+        <div className={styles.category}>{match.params.categoryId}</div>
       </div>
     );
   }
