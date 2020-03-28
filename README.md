@@ -5,7 +5,7 @@
 
 ## Opis projektu
 
-DO UZUPEŁNIENIA
+Przykładowy projekt sklepu tworzony przez cztero osobową grupę przez 3 tygodnie pod nadzorem mentora. Projekt ma na celu naukę progamowania oraz pracy zespołowej. 
 
 ## Demo
 

@@ -7,14 +7,12 @@ import styles from './FurnitureGalleryPrice.module.scss';
 
 class FurnitureGalleryPrice extends React.Component {
   render() {
-    const { stars, name, price, promoPrice } = this.props;
+    const { stars, name, price, oldPrice } = this.props;
     return (
       <div>
         <div className={styles.price}>
-          <h5 className={styles.promoPrice}>{'$' + price}</h5>
-          <s>
-            <h6 className={styles.regularPrice}>{'$' + promoPrice}</h6>
-          </s>
+          <h5 className={styles.regularPrice}>{'$' + price}</h5>
+          <s>{oldPrice && <h6 className={styles.oldPrice}>{'$' + oldPrice}</h6>}</s>
         </div>
         <div className={styles.name}>
           <div className={styles.decorationRight}></div>
@@ -41,7 +39,7 @@ FurnitureGalleryPrice.propTypes = {
   stars: PropTypes.number,
   name: PropTypes.string,
   price: PropTypes.number,
-  promoPrice: PropTypes.number,
+  oldPrice: PropTypes.number,
 };
 
 export default FurnitureGalleryPrice;
