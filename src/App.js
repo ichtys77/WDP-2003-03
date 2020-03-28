@@ -19,6 +19,12 @@ const App = () => (
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
           <Route exact path={'/product/:productId'} component={ProductPage} />
+          <Route exact path={'/furniture'} component={ProductList} />
+          <Route exact path={'/chair'} component={ProductList} />
+          <Route exact path={'/table'} component={ProductList} />
+          <Route exact path={'/sofa'} component={ProductList} />
+          <Route exact path={'/bedroom'} component={ProductList} />
+          <Route exact path={'/blog'} component={ProductList} />
         </Switch>
       </MainLayout>
     </BrowserRouter>
