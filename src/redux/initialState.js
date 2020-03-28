@@ -1428,7 +1428,7 @@ const initialState = {
     },
     {
       id: 3,
-      title: 'SHOW US',
+      title: '',
       titleBold: 'YOUR IDEAS',
       subtitle: 'Watch our clients houses',
       btnName: 'SEE MORE',
@@ -1438,7 +1438,7 @@ const initialState = {
     },
     {
       id: 4,
-      title: 'Your',
+      title: '',
       titleBold: 'NEW BEDROOM',
       subtitle: 'Choose from most popular 15 sets',
       btnName: 'INSPIRATIONS',
