@@ -25,7 +25,7 @@ class ProductList extends React.Component {
 
     return (
       <div className={styles.root}>
-        <ProductListBaner />
+        <ProductListBaner match={match} />
         This is ProductList
         <div className={styles.category}>{match.params.categoryId}</div>
       </div>
