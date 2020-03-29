@@ -1,9 +1,33 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './ProductList.module.scss';
 
-const ProductList = () => <div className={styles.root}>This is ProductList</div>;
+class ProductList extends React.Component {
+  static propTypes = {
+    children: PropTypes.node,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        categoryId: PropTypes.string,
+      }),
+    }),
+  };
 
-// ProductList.propTypes = {};
+  static defaultProps = {
+    match: {
+      params: {},
+    },
+  };
+
+  render() {
+    const { match } = this.props;
+
+    return (
+      <div className={styles.root}>
+        This is ProductList
+        <div className={styles.category}>{match.params.categoryId}</div>
+      </div>
+    );
+  }
+}
 
 export default ProductList;
