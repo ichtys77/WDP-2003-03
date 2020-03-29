@@ -1,0 +1,108 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin: 0;
+  
+  :global(.container) > :global(.row) {
+    height: 185px;
+    background-color: $header-bg;
+    margin: 0;
+  }
+
+  .baner {
+
+    color: $cc-cartbox-text-color;
+    text-align: center;
+
+    .title {
+      //width: 100%;
+      font-size: 2.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-weight: 300;
+
+      div:last-of-type {
+        font-weight: bold;
+        margin: 0 15px;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: 200;
+      letter-spacing: 0.53rem;
+      text-align: center;
+
+      span {
+      font-size: 1.3rem;
+      color: $primary;
+      font-weight: 300;
+
+      }
+    }
+  }
+
+  .breadcrumb {
+    padding: 8px 15px;
+    background-color: $cc-cartCounter-text-color;
+    margin: 0 0 $base-padding 0;
+    text-align: left;
+
+    div {
+      display: inline-block;
+      margin: 5px 15px;
+
+      &:last-child {
+        color: $primary;
+        font-weight: bold;
+      }
+    }
+
+    .svg {
+      font-size: 0.7rem;
+      line-height: 1.7;
+    }
+
+  }
+}
+
+@media(max-width: 768px) {
+    
+  .root {
+
+    :global(.container) > :global(.row) {
+      background-color: $header-bg;
+    }
+      
+    .baner {
+      .title {
+        font-size: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        div:last-of-type {
+          font-weight: bold;
+        }
+      }
+        
+    .subtitle {
+      font-size: 1rem;
+      text-align: center;
+      letter-spacing: normal;
+
+      span {
+        font-size: 1.2rem;
+        color: $primary;
+        font-weight: 300;
+        display: inline-block;
+        }
+      }
+
+    }
+  }
+}
+  
