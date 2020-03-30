@@ -9,7 +9,7 @@ Przykładowy projekt sklepu tworzony przez cztero osobową grupę przez 3 tygodn
 
 ## Demo
 
-DO UZUPEŁNIENIA
+DO UZUPEŁNIENIA1
 
 ## Inicjacja projektu
 
