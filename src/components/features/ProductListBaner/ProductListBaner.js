@@ -1,12 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './ProductListBaner.module.scss';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
-const ProductListBaner = () => (
+const ProductListBaner = ({ match }) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row no-gutters align-items-center'>
@@ -22,14 +21,34 @@ const ProductListBaner = () => (
       </div>
 
       <div className={styles.breadcrumb}>
-        <div>Home</div>
-        <FontAwesomeIcon icon={faChevronRight} className={styles.svg}></FontAwesomeIcon>
-        <div>Furniture</div>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to={`/shop/${match.params.categoryId}`}>
+              {match.params.categoryId}
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 );
 
-// ProductListBaner.propTypes = {};align-items-center
+ProductListBaner.propTypes = {
+  children: PropTypes.node,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      categoryId: PropTypes.string,
+    }),
+  }),
+};
+
+ProductListBaner.defaultProps = {
+  match: {
+    params: {},
+  },
+};
 
 export default ProductListBaner;
