@@ -5,11 +5,11 @@
 
 ## Opis projektu
 
-Przykładowy projekt sklepu tworzony przez cztero osobową grupę przez 3 tygodnie pod nadzorem mentora. Projekt ma na celu naukę progamowania oraz pracy zespołowej. 
+Przykładowy projekt sklepu tworzony przez cztero osobową grupę przez 3 tygodnie pod nadzorem mentora. Projekt ma na celu naukę progamowania oraz pracy zespołowej.
 
 ## Demo
 
-https://team-project-wdp-2003-03.herokuapp.com/
+https://team-project-wdp200303.herokuapp.com/
 
 ## Inicjacja projektu
 
@@ -41,7 +41,7 @@ dla plików, które zostały wybrane za pomocą `git add` i mają być zapisane 
 #### Narzędzia pracy:
 Jira, Git, GitHub;
 
-#### Biblioteka do tworzenia interfejsu: 
+#### Biblioteka do tworzenia interfejsu:
 React;
 
 #### Podstawowa struktura katalogów projektu:
