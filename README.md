@@ -9,7 +9,7 @@ Przykładowy projekt sklepu tworzony przez cztero osobową grupę przez 3 tygodn
 
 ## Demo
 
-https://team-project-wdp200303.herokuapp.com/
+https://vigilant-kalam-08b13c.netlify.com/
 
 ## Inicjacja projektu
 
