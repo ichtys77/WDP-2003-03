@@ -9,7 +9,7 @@ Przykładowy projekt sklepu tworzony przez cztero osobową grupę przez 3 tygodn
 
 ## Demo
 
-DO UZUPEŁNIENIA
+https://team-project-wdp-2003-03.herokuapp.com/
 
 ## Inicjacja projektu
 
